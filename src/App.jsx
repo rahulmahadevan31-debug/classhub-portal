@@ -5,22 +5,13 @@ const Icon = ({ name, className = "w-5 h-5", ...props }) => {
     home: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
     ),
-    tasks: (
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+    academic: (
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
     ),
     assignments: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
     ),
-    teams: (
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-    ),
-    calendar: (
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-    ),
-    notices: (
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
-    ),
-    batch: (
+    subjects: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
     ),
     cpTracker: (
@@ -31,6 +22,15 @@ const Icon = ({ name, className = "w-5 h-5", ...props }) => {
     ),
     rollCall: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
+    ),
+    tasks: (
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+    ),
+    users: (
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+    ),
+    notices: (
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
     ),
     plus: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 4v16m8-8H4" />
@@ -53,17 +53,14 @@ const Icon = ({ name, className = "w-5 h-5", ...props }) => {
     alert: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
     ),
-    pin: (
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
-    ),
-    clock: (
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-    ),
-    user: (
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+    trash: (
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
     ),
     star: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+    ),
+    user: (
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
     ),
     download: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
@@ -77,332 +74,83 @@ const Icon = ({ name, className = "w-5 h-5", ...props }) => {
   );
 };
 
-const INITIAL_DATA = {
-  batches: [
-    {
-      id: "b25",
-      name: "Batch 2025-27",
-      degree: "MBA - Full Time",
-      students: [
-        { 
-          name: "Aarav Sharma", 
-          email: "aarav.s25@psgim.ac.in", 
-          roll: "25MBA001", 
-          spec: "Marketing & Finance",
-          attendance: { s1: { attended: 22, total: 24 }, s2: { attended: 17, total: 24 }, s3: { attended: 21, total: 22 }, s4: { attended: 14, total: 20 } }
-        },
-        { 
-          name: "Priya Nair", 
-          email: "priya.n25@psgim.ac.in", 
-          roll: "25MBA014", 
-          spec: "Operations & HR",
-          attendance: { s1: { attended: 24, total: 24 }, s2: { attended: 23, total: 24 }, s3: { attended: 22, total: 22 }, s4: { attended: 19, total: 20 } }
-        },
-        { 
-          name: "Vikram Rathore", 
-          email: "vikram.r25@psgim.ac.in", 
-          roll: "25MBA028", 
-          spec: "Business Analytics",
-          attendance: { s1: { attended: 16, total: 24 }, s2: { attended: 18, total: 24 }, s3: { attended: 18, total: 22 }, s4: { attended: 15, total: 20 } }
-        },
-        { 
-          name: "Divya Subramanian", 
-          email: "divya.s25@psgim.ac.in", 
-          roll: "25MBA042", 
-          spec: "Finance & Fintech",
-          attendance: { s1: { attended: 23, total: 24 }, s2: { attended: 22, total: 24 }, s3: { attended: 20, total: 22 }, s4: { attended: 18, total: 20 } }
-        },
-        { 
-          name: "Karthik Raja", 
-          email: "karthik.r25@psgim.ac.in", 
-          roll: "25MBA055", 
-          spec: "General Management",
-          attendance: { s1: { attended: 15, total: 24 }, s2: { attended: 16, total: 24 }, s3: { attended: 15, total: 22 }, s4: { attended: 12, total: 20 } }
-        }
-      ]
-    },
-    {
-      id: "b26",
-      name: "Batch 2026-28",
-      degree: "MBA - Executive",
-      students: [
-        { 
-          name: "Sneha Menon", 
-          email: "sneha.m26@psgim.ac.in", 
-          roll: "26MBA003", 
-          spec: "Business Analytics",
-          attendance: { s1: { attended: 12, total: 12 } }
-        },
-        { 
-          name: "Rohan Varma", 
-          email: "rohan.v26@psgim.ac.in", 
-          roll: "26MBA019", 
-          spec: "Marketing & Retail",
-          attendance: { s1: { attended: 11, total: 12 } }
-        }
-      ]
-    }
+// ZERO-DATA CLEAN SLATE: Only faculties create classes, subjects, students, and curriculum.
+const EMPTY_INITIAL_DATA = {
+  classes: [],     // { id, name, section, academicYear }
+  students: [],    // { id, name, email, roll, classId }
+  faculties: [
+    { id: "fac-admin-1", name: "Dr. Faculty Admin", email: "admin.faculty@psgim.ac.in", designation: "Faculty Coordinator" }
   ],
-  subjects: [
-    { id: "s1", code: "MKT601", name: "Marketing Management", fac: "Dr. R. Ramanathan", credits: 3, totalClasses: 24 },
-    { id: "s2", code: "FIN602", name: "Financial Accounting & Reporting", fac: "Prof. Lakshmi Narayanan", credits: 3, totalClasses: 24 },
-    { id: "s3", code: "OPR603", name: "Operations & Supply Chain Strategy", fac: "Dr. S. Karthik", credits: 3, totalClasses: 22 },
-    { id: "s4", code: "ANL604", name: "Business Analytics & Python", fac: "Dr. Anita Roy", credits: 3, totalClasses: 20 }
-  ],
-  cpLogs: [
-    { id: "cp-1", studentEmail: "aarav.s25@psgim.ac.in", studentName: "Aarav Sharma", subjectId: "s1", points: 3, category: "Breakthrough Insight", note: "Sharply quantified unit economics in Nike's DTC pivot.", date: new Date(Date.now() - 24 * 3600 * 1000).toISOString() },
-    { id: "cp-2", studentEmail: "priya.n25@psgim.ac.in", studentName: "Priya Nair", subjectId: "s1", points: 2, category: "Framework Rigor", note: "Applied Porter's Five Forces to channel partner leverage.", date: new Date(Date.now() - 24 * 3600 * 1000).toISOString() },
-    { id: "cp-3", studentEmail: "divya.s25@psgim.ac.in", studentName: "Divya Subramanian", subjectId: "s1", points: 2, category: "Analytical Critique", note: "Challenged assumptions regarding CAC in market expansion.", date: new Date(Date.now() - 48 * 3600 * 1000).toISOString() },
-    { id: "cp-4", studentEmail: "karthik.r25@psgim.ac.in", studentName: "Karthik Raja", subjectId: "s1", points: 1, category: "Cold-Call Response", note: "Summarized opening case dilemma adequately.", date: new Date(Date.now() - 48 * 3600 * 1000).toISOString() }
-  ],
-  teams: [
-    {
-      id: "t1",
-      name: "Team Alpha (Synergy)",
-      batchId: "b25",
-      leader: "Priya Nair",
-      members: ["Priya Nair", "Aarav Sharma", "Vikram Rathore"]
-    },
-    {
-      id: "t2",
-      name: "Apex Analytics Group",
-      batchId: "b25",
-      leader: "Vikram Rathore",
-      members: ["Vikram Rathore", "Divya Subramanian"]
-    }
-  ],
-  assignments: [
-    {
-      id: "asg-1",
-      subjectId: "s1",
-      title: "HBS Case: Nike Direct-to-Consumer Strategy",
-      desc: "Analyze Nike's DTC pivot versus wholesale retail partners. Formulate a 4-year transition roadmap with gross margin impact analysis.",
-      due: new Date(Date.now() + 18 * 3600 * 1000).toISOString(),
-      maxMarks: 20,
-      rubricWeights: { analysis: 8, framework: 6, recommendations: 6 },
-      postedBy: "Dr. R. Ramanathan"
-    },
-    {
-      id: "asg-2",
-      subjectId: "s2",
-      title: "Tata Motors EV Division Valuation Model",
-      desc: "Construct a 5-year discounted cash flow (DCF) model analyzing battery subsidies & EV manufacturing CAPEX cycle.",
-      due: new Date(Date.now() + 4 * 86400 * 1000).toISOString(),
-      maxMarks: 25,
-      rubricWeights: { analysis: 10, framework: 10, recommendations: 5 },
-      postedBy: "Prof. Lakshmi Narayanan"
-    },
-    {
-      id: "asg-3",
-      subjectId: "s4",
-      title: "Customer Churn Prediction in Telecom",
-      desc: "Train a logistic regression and random forest model on the provided churn CSV dataset. Submit executive summary.",
-      due: new Date(Date.now() - 24 * 3600 * 1000).toISOString(),
-      maxMarks: 15,
-      rubricWeights: { analysis: 5, framework: 5, recommendations: 5 },
-      postedBy: "Dr. Anita Roy"
-    }
-  ],
-  submissions: [
-    {
-      id: "sub-1",
-      asgId: "asg-1",
-      studentName: "Aarav Sharma",
-      studentEmail: "aarav.s25@psgim.ac.in",
-      content: "https://drive.google.com/file/d/demo-nike-dtc-aarav/view?usp=sharing",
-      submittedAt: new Date(Date.now() - 2 * 3600 * 1000).toISOString(),
-      marks: null,
-      rubric: { analysis: null, framework: null, recommendations: null },
-      feedback: ""
-    },
-    {
-      id: "sub-2",
-      asgId: "asg-3",
-      studentName: "Aarav Sharma",
-      studentEmail: "aarav.s25@psgim.ac.in",
-      content: "https://github.com/aarav-psgim/telecom-churn-analytics",
-      submittedAt: new Date(Date.now() - 20 * 3600 * 1000).toISOString(),
-      marks: 14,
-      rubric: { analysis: 5, framework: 5, recommendations: 4 },
-      feedback: "Rigorous ROC-AUC curve analysis. Good use of SMOTE oversampling."
-    },
-    {
-      id: "sub-3",
-      asgId: "asg-1",
-      studentName: "Priya Nair",
-      studentEmail: "priya.n25@psgim.ac.in",
-      content: "https://onedrive.live.com/view.aspx?resid=priya-nike-case",
-      submittedAt: new Date(Date.now() - 5 * 3600 * 1000).toISOString(),
-      marks: 18,
-      rubric: { analysis: 7, framework: 6, recommendations: 5 },
-      feedback: "Outstanding synthesis of distributor conflict and inventory margins."
-    }
-  ],
-  tasks: [
-    {
-      id: "tsk-1",
-      title: "Refine slide deck for Nike Marketing Presentation",
-      topic: "Marketing Management",
-      due: new Date(Date.now() + 14 * 3600 * 1000).toISOString(),
-      priority: "High",
-      teamId: "t1",
-      owner: "priya.n25@psgim.ac.in",
-      by: "Priya Nair",
-      done: false
-    },
-    {
-      id: "tsk-2",
-      title: "Complete Harvard Business Review read on Supply Chain resilience",
-      topic: "Operations Strategy",
-      due: new Date(Date.now() + 36 * 3600 * 1000).toISOString(),
-      priority: "Medium",
-      teamId: null,
-      owner: "aarav.s25@psgim.ac.in",
-      by: "Aarav Sharma",
-      done: true,
-      doneBy: "Aarav Sharma"
-    },
-    {
-      id: "tsk-3",
-      title: "Calculate Beta coefficient for Automobile sector benchmark",
-      topic: "Financial Accounting",
-      due: new Date(Date.now() + 8 * 3600 * 1000).toISOString(),
-      priority: "High",
-      teamId: null,
-      owner: "aarav.s25@psgim.ac.in",
-      by: "Aarav Sharma",
-      done: false
-    }
-  ],
-  events: [
-    {
-      id: "ev-1",
-      title: "Guest Keynote: Leadership in Turbulent Consumer Markets",
-      category: "Guest Lecture",
-      at: new Date(Date.now() + 28 * 3600 * 1000).toISOString(),
-      where: "Auditorium Hall B & Zoom Webinar",
-      speaker: "Mr. C. K. Ranganathan (Chairman, CavinKare)"
-    },
-    {
-      id: "ev-2",
-      title: "Corporate Finance Mid-term Comprehensive Review",
-      category: "Academics",
-      at: new Date(Date.now() + 72 * 3600 * 1000).toISOString(),
-      where: "Lecture Hall 204",
-      speaker: "Prof. Lakshmi Narayanan"
-    }
-  ],
-  notices: [
-    {
-      id: "nt-1",
-      title: "Campus Placements 2026: Day Zero Cohort Shortlisting",
-      category: "Placements",
-      msg: "Shortlisted candidates for McKinsey Knowledge Center, Deloitte S&O, and HDFC Bank must upload their unredacted resumes by Sunday 5:00 PM.",
-      pinned: true,
-      postedAt: new Date(Date.now() - 5 * 3600 * 1000).toISOString(),
-      author: "MBA Placement Office"
-    },
-    {
-      id: "nt-2",
-      title: "Access to Bloomberg Terminal & EBSCOhost Database",
-      category: "Academic",
-      msg: "Remote VPN credentials for financial database access have been refreshed for Trimester III. Check your college webmail for connection keys.",
-      pinned: true,
-      postedAt: new Date(Date.now() - 24 * 3600 * 1000).toISOString(),
-      author: "Prof. S. Meenakshi"
-    }
-  ],
-  limits: {
-    members: 6,
-    teamTasks: 20,
-    indivTasks: 10
-  }
+  subjects: [],    // { id, classId, code, name, facultyEmail, facultyName, credits, totalClasses }
+  assignments: [], // { id, classId, subjectId, title, desc, due, maxMarks, rubricWeights, postedBy }
+  submissions: [], // { id, asgId, studentEmail, studentName, content, submittedAt, marks, rubric, feedback }
+  cpLogs: [],      // { id, classId, subjectId, studentEmail, studentName, facultyEmail, points, category, note, date }
+  rollCalls: [],   // { id, classId, subjectId, date, presentEmails: [] }
+  notices: [],     // { id, classId, title, category, msg, pinned, author, date }
+  tasks: []        // { id, studentEmail, classId, title, topic, due, priority, done }
 };
 
-const DEMO_PERSONAS = [
-  {
-    role: "student",
-    name: "Aarav Sharma",
-    email: "aarav.s25@psgim.ac.in",
-    tagline: "Student (Marketing & Finance)",
-    batchId: "b25"
-  },
-  {
-    role: "leader",
-    name: "Priya Nair",
-    email: "priya.n25@psgim.ac.in",
-    tagline: "Team Alpha Leader",
-    batchId: "b25"
-  },
-  {
-    role: "faculty",
-    name: "Dr. R. Ramanathan",
-    email: "ramanathan.mkt@psgim.ac.in",
-    tagline: "Prof. of Marketing Management",
-    batchId: "b25"
-  },
-  {
-    role: "admin",
-    name: "Prof. S. Meenakshi",
-    email: "mba.office@psgim.ac.in",
-    tagline: "MBA Program Director",
-    batchId: "b25"
-  }
-];
-
-const STORAGE_KEY = "classhub_native_beta_v1";
+const STORAGE_KEY = "classhub_isolated_db_v2";
 
 export default function App() {
   const [data, setData] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed.classes)) return parsed;
+      }
     } catch (e) {
-      console.warn("Storage parse error:", e);
+      console.warn("Storage load error:", e);
     }
-    return INITIAL_DATA;
+    return EMPTY_INITIAL_DATA;
   });
 
-  const [user, setUser] = useState(DEMO_PERSONAS[0]);
-  const [theme, setTheme] = useState(() => localStorage.getItem("classhub_theme") || "light");
+  // Current session user: either Faculty (Admin) or a specific enrolled Student
+  const [currentUser, setCurrentUser] = useState(() => {
+    return {
+      role: "faculty",
+      name: "Dr. Faculty Admin",
+      email: "admin.faculty@psgim.ac.in",
+      designation: "Program Coordinator"
+    };
+  });
+
   const [activeTab, setActiveTab] = useState("home");
-  const [selectedBatch, setSelectedBatch] = useState("b25");
-  
-  // Custom toast notification system (Safe, accessible replacement for alert())
+  const [selectedClassId, setSelectedClassId] = useState("");
+  const [theme, setTheme] = useState(() => localStorage.getItem("classhub_theme") || "light");
+
+  // Custom alert & confirmation modals (Zero browser alerts/confirms)
   const [toast, setToast] = useState(null);
   const showToast = (message, type = "info") => {
     setToast({ message, type });
     setTimeout(() => setToast(null), 3600);
   };
 
-  // Safe confirm modal (Safe replacement for confirm())
   const [confirmModal, setConfirmModal] = useState(null);
 
-  // Modal dialog states
-  const [showTaskModal, setShowTaskModal] = useState(false);
+  // Form modals state
+  const [showClassModal, setShowClassModal] = useState(false);
+  const [showSubjectModal, setShowSubjectModal] = useState(false);
+  const [showStudentModal, setShowStudentModal] = useState(false);
+  const [showCsvStudentModal, setShowCsvStudentModal] = useState(false);
   const [showAsgModal, setShowAsgModal] = useState(false);
   const [showGradeModal, setShowGradeModal] = useState(null);
-  const [showNoticeModal, setShowNoticeModal] = useState(false);
-  const [showEventModal, setShowEventModal] = useState(false);
-  const [showImportModal, setShowImportModal] = useState(false);
-  const [showCourseModal, setShowCourseModal] = useState(false);
-  const [showTeamModal, setShowTeamModal] = useState(false);
-  const [showLogCpModal, setShowLogCpModal] = useState(false);
+  const [showCpModal, setShowCpModal] = useState(false);
   const [showRollCallModal, setShowRollCallModal] = useState(false);
-  const [rollCallSubject, setRollCallSubject] = useState("s1");
-  const [rollCallRoster, setRollCallRoster] = useState({});
+  const [showNoticeModal, setShowNoticeModal] = useState(false);
+  const [showTaskModal, setShowTaskModal] = useState(false);
+  const [showSwitchUserModal, setShowSwitchUserModal] = useState(false);
 
-  // Filter & search states
-  const [taskFilter, setTaskFilter] = useState("all");
-  const [taskSearch, setTaskSearch] = useState("");
-  const [rosterSearch, setRosterSearch] = useState("");
+  // Roll call dynamic state
+  const [rollCallSubId, setRollCallSubId] = useState("");
+  const [rollCallRoster, setRollCallRoster] = useState({});
 
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     } catch (err) {
-      console.error("Storage error:", err);
-      showToast("Local storage capacity reached.", "error");
+      console.error("Local persistence error:", err);
     }
   }, [data]);
 
@@ -416,119 +164,138 @@ export default function App() {
     localStorage.setItem("classhub_theme", theme);
   }, [theme]);
 
-  const isAdmin = user.role === "admin";
-  const isFaculty = user.role === "faculty" || isAdmin;
-  const isLeader = user.role === "leader" || isAdmin;
-  const isStudent = user.role === "student" || user.role === "leader";
+  // Keep a valid active class selected if classes exist
+  useEffect(() => {
+    if (data.classes.length > 0 && (!selectedClassId || !data.classes.some(c => c.id === selectedClassId))) {
+      setSelectedClassId(data.classes[0].id);
+    }
+  }, [data.classes, selectedClassId]);
 
-  const currentBatch = useMemo(() => {
-    return data.batches.find(b => b.id === selectedBatch) || data.batches[0];
-  }, [data.batches, selectedBatch]);
+  const isFaculty = currentUser.role === "faculty";
+  const isStudent = currentUser.role === "student";
 
-  const userTeams = useMemo(() => {
-    if (isAdmin) return data.teams;
-    return data.teams.filter(t => t.members.includes(user.name));
-  }, [data.teams, user.name, isAdmin]);
+  // If student is logged in, their class is strictly their enrolled class!
+  const effectiveClassId = isStudent ? currentUser.classId : selectedClassId;
+  const currentClass = useMemo(() => {
+    return data.classes.find(c => c.id === effectiveClassId) || null;
+  }, [data.classes, effectiveClassId]);
 
-  const userTasks = useMemo(() => {
-    return data.tasks.filter(t => {
-      if (t.teamId) {
-        return userTeams.some(team => team.id === t.teamId);
+  // STRICT ISOLATION 1: Subjects strictly belonging to this Class
+  const classSubjects = useMemo(() => {
+    if (!effectiveClassId) return [];
+    return data.subjects.filter(s => s.classId === effectiveClassId);
+  }, [data.subjects, effectiveClassId]);
+
+  // STRICT ISOLATION 2: The faculties for this class (e.g. 9 faculties for 9 subjects)
+  const classFaculties = useMemo(() => {
+    const facultyMap = new Map();
+    classSubjects.forEach(sub => {
+      if (sub.facultyEmail && !facultyMap.has(sub.facultyEmail)) {
+        facultyMap.set(sub.facultyEmail, {
+          name: sub.facultyName || "Subject Professor",
+          email: sub.facultyEmail,
+          subjects: []
+        });
       }
-      return t.owner === user.email;
+      if (sub.facultyEmail) {
+        facultyMap.get(sub.facultyEmail).subjects.push(sub.name);
+      }
     });
-  }, [data.tasks, userTeams, user.email]);
+    return Array.from(facultyMap.values());
+  }, [classSubjects]);
 
-  const studentAttendanceSummary = useMemo(() => {
-    if (!isStudent) return [];
-    const currentStudentObj = currentBatch.students.find(s => s.email === user.email);
-    if (!currentStudentObj || !currentStudentObj.attendance) return [];
+  // STRICT ISOLATION 3: Students strictly enrolled in this Class
+  const classStudents = useMemo(() => {
+    if (!effectiveClassId) return [];
+    return data.students.filter(s => s.classId === effectiveClassId);
+  }, [data.students, effectiveClassId]);
 
-    return data.subjects.map(sub => {
-      const record = currentStudentObj.attendance[sub.id] || { attended: 0, total: sub.totalClasses || 24 };
-      const pct = record.total > 0 ? Math.round((record.attended / record.total) * 100) : 100;
-      const isAtRisk = pct < 75;
+  // STRICT ISOLATION 4: Assignments strictly for this Class's subjects
+  const classAssignments = useMemo(() => {
+    if (!effectiveClassId) return [];
+    return data.assignments.filter(a => a.classId === effectiveClassId);
+  }, [data.assignments, effectiveClassId]);
+
+  // STRICT ISOLATION 5: Class notices
+  const classNotices = useMemo(() => {
+    if (!effectiveClassId) return [];
+    return data.notices.filter(n => n.classId === effectiveClassId || n.classId === "all");
+  }, [data.notices, effectiveClassId]);
+
+  // Attendance radar calculation for student (against 75% rule)
+  const studentAttendanceStats = useMemo(() => {
+    if (!isStudent || !currentClass) return [];
+
+    return classSubjects.map(sub => {
+      // Find all roll calls conducted for this subject in this class
+      const subjectSessions = data.rollCalls.filter(rc => rc.classId === effectiveClassId && rc.subjectId === sub.id);
+      const totalSessions = Math.max(subjectSessions.length, sub.totalClasses ? Math.min(subjectSessions.length, sub.totalClasses) : subjectSessions.length);
       
-      // Calculate how many consecutive upcoming classes needed to cross 75%
-      let classesNeededToClear = 0;
-      if (isAtRisk) {
-        classesNeededToClear = Math.max(1, Math.ceil((0.75 * record.total - record.attended) / 0.25));
-      }
+      const attendedCount = subjectSessions.filter(rc => rc.presentEmails && rc.presentEmails.includes(currentUser.email)).length;
+      const effectiveTotal = Math.max(1, subjectSessions.length);
+      const percentage = subjectSessions.length === 0 ? 100 : Math.round((attendedCount / effectiveTotal) * 100);
+      const isAtRisk = percentage < 75;
 
-      // Calculate safe margin (allowable absences while retaining >= 75%)
-      const safeAbsencesAllowed = Math.max(0, Math.floor((record.attended - 0.75 * record.total) / 0.75));
+      let classesNeededToClear = 0;
+      if (isAtRisk && subjectSessions.length > 0) {
+        classesNeededToClear = Math.max(1, Math.ceil((0.75 * effectiveTotal - attendedCount) / 0.25));
+      }
 
       return {
         subject: sub,
-        attended: record.attended,
-        total: record.total,
-        percentage: pct,
+        attended: attendedCount,
+        conducted: subjectSessions.length,
+        percentage,
         isAtRisk,
-        classesNeededToClear,
-        safeAbsencesAllowed
+        classesNeededToClear
       };
     });
-  }, [currentBatch, user.email, isStudent, data.subjects]);
+  }, [isStudent, currentClass, classSubjects, data.rollCalls, effectiveClassId, currentUser]);
 
-  const facultyStats = useMemo(() => {
-    if (!isFaculty) return null;
-    const handledSubIds = new Set(data.subjects.filter(s => isAdmin || s.fac === user.name).map(s => s.id));
-    const pendingSubs = data.submissions.filter(sub => {
-      const asg = data.assignments.find(a => a.id === sub.asgId);
-      return asg && handledSubIds.has(asg.subjectId) && (sub.marks === null || sub.marks === undefined);
-    });
-
-    const totalCpLogged = data.cpLogs.filter(log => handledSubIds.has(log.subjectId)).length;
-
-    return {
-      pendingSubsCount: pendingSubs.length,
-      totalCpLogged
-    };
-  }, [isFaculty, data.subjects, data.submissions, data.assignments, data.cpLogs, user.name, isAdmin]);
-
-  const formatDate = (isoString) => {
-    if (!isoString) return "No date set";
+  const formatDate = (iso) => {
+    if (!iso) return "No date";
     try {
-      const d = new Date(isoString);
-      return d.toLocaleDateString("en-IN", {
+      return new Date(iso).toLocaleDateString("en-IN", {
         month: "short",
         day: "numeric",
         hour: "2-digit",
         minute: "2-digit"
       });
     } catch (e) {
-      return isoString;
+      return iso;
     }
   };
 
-  const isOverdue = (isoString, isDone = false) => {
-    if (isDone || !isoString) return false;
-    return new Date(isoString).getTime() < Date.now();
-  };
-
-  const handleResetData = () => {
+  const handleResetToClean = () => {
     setConfirmModal({
-      title: "Reset to Clean Demo State?",
-      message: "This will restore all default MBA cohorts, attendance numbers, CP points, and assignments.",
-      confirmText: "Yes, Reset Data",
+      title: "Wipe All Data & Start Fresh?",
+      message: "This will remove all classes, subjects, students, assignments, and attendance logs. Only clean admin faculty access will remain.",
+      confirmText: "Wipe Everything",
       onConfirm: () => {
-        setData(INITIAL_DATA);
-        showToast("ClassHub reset to clean factory state!", "success");
+        setData(EMPTY_INITIAL_DATA);
+        setSelectedClassId("");
+        setCurrentUser({
+          role: "faculty",
+          name: "Dr. Faculty Admin",
+          email: "admin.faculty@psgim.ac.in",
+          designation: "Program Coordinator"
+        });
+        showToast("Database cleared to zero-data state!", "success");
         setConfirmModal(null);
       }
     });
   };
 
-  const handleExportData = () => {
+  const handleExportBackup = () => {
     try {
       const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = `classhub_backup_${new Date().toISOString().slice(0, 10)}.json`;
+      a.download = `classhub_data_${new Date().toISOString().slice(0, 10)}.json`;
       a.click();
       URL.revokeObjectURL(url);
-      showToast("ClassHub data exported as JSON backup!", "success");
+      showToast("Data backup saved as JSON.", "success");
     } catch (e) {
       showToast("Export failed.", "error");
     }
@@ -536,27 +303,30 @@ export default function App() {
 
   const navTabs = [
     { id: "home", label: "Dashboard", icon: "home" },
-    { id: "tasks", label: "Task Checklist", icon: "tasks", badge: userTasks.filter(t => !t.done).length },
-    { id: "asg", label: "Case Studies", icon: "assignments" },
-    { id: "teams", label: "Syndicate Teams", icon: "teams" },
     ...(isFaculty 
       ? [
-          { id: "cpTracker", label: "CP & Cold-Calls", icon: "cpTracker" },
-          { id: "rollCallTab", label: "Lecture Roll-Call", icon: "rollCall" }
-        ] 
-      : [{ id: "attendance", label: "Attendance Radar", icon: "attendance" }]
+          { id: "classes", label: "Classes & 9 Subjects", icon: "academic" },
+          { id: "students", label: "Cohort Students", icon: "users", badge: classStudents.length },
+          { id: "rollcall", label: "Lecture Roll-Call", icon: "rollCall" },
+          { id: "cp", label: "CP & Cold-Calls", icon: "cpTracker" },
+        ]
+      : [
+          { id: "subjects", label: "My 9 Subjects & Faculty", icon: "subjects" },
+          { id: "attendance", label: "75% Attendance Radar", icon: "attendance" },
+          { id: "mycp", label: "My CP Performance", icon: "cpTracker" },
+          { id: "tasks", label: "Task Checklist", icon: "tasks" },
+        ]
     ),
-    { id: "cal", label: "Calendar", icon: "calendar" },
-    { id: "notices", label: "Notice Board", icon: "notices" },
-    { id: "batch", label: "Cohort Roster", icon: "batch" }
+    { id: "asg", label: "Assignments", icon: "assignments", badge: classAssignments.length },
+    { id: "notices", label: "Circulars", icon: "notices" }
   ];
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'}`}>
       
-      {/* Toast Notification Container */}
+      {/* Toast popup */}
       {toast && (
-        <div className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-4 py-3 rounded-xl shadow-xl border text-xs font-semibold transition-all transform duration-300 ${
+        <div className={`fixed top-4 right-4 z-50 flex items-center gap-3 px-4 py-3 rounded-xl shadow-xl border text-xs font-semibold animate-fadeIn ${
           toast.type === "error" 
             ? "bg-rose-50 border-rose-200 text-rose-800 dark:bg-rose-950 dark:border-rose-800 dark:text-rose-200"
             : toast.type === "success"
@@ -565,33 +335,33 @@ export default function App() {
         }`}>
           <Icon name={toast.type === "error" ? "alert" : "check"} className="w-4 h-4 flex-shrink-0" />
           <span>{toast.message}</span>
-          <button onClick={() => setToast(null)} className="ml-2 hover:opacity-75">
+          <button onClick={() => setToast(null)} className="ml-2 hover:opacity-70">
             <Icon name="x" className="w-3.5 h-3.5" />
           </button>
         </div>
       )}
 
-      {/* Confirmation Modal */}
+      {/* Confirmation modal */}
       {confirmModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl">
-            <div className="flex items-center gap-3 text-amber-600 dark:text-amber-400 mb-3">
+            <div className="flex items-center gap-3 text-rose-600 mb-3">
               <Icon name="alert" className="w-6 h-6" />
-              <h3 className="text-lg font-bold text-slate-900 dark:text-white">{confirmModal.title}</h3>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">{confirmModal.title}</h3>
             </div>
             <p className="text-xs text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
               {confirmModal.message}
             </p>
-            <div className="flex justify-end gap-3">
+            <div className="flex justify-end gap-2.5">
               <button 
                 onClick={() => setConfirmModal(null)}
-                className="px-4 py-2 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                className="px-4 py-2 rounded-xl text-xs font-semibold border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800"
               >
                 Cancel
               </button>
               <button 
                 onClick={confirmModal.onConfirm}
-                className="px-4 py-2 rounded-xl text-xs font-semibold bg-rose-600 hover:bg-rose-700 text-white transition shadow-sm"
+                className="px-4 py-2 rounded-xl text-xs font-semibold bg-rose-600 hover:bg-rose-700 text-white shadow-sm"
               >
                 {confirmModal.confirmText || "Confirm"}
               </button>
@@ -600,8 +370,8 @@ export default function App() {
         </div>
       )}
 
-      {/* Header */}
-      <header className="sticky top-0 z-30 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800 px-4 lg:px-8 py-2.5 flex items-center justify-between gap-4">
+      {/* Header bar */}
+      <header className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 px-4 lg:px-8 py-2.5 flex items-center justify-between gap-4">
         
         {/* Brand */}
         <div className="flex items-center gap-3">
@@ -613,168 +383,130 @@ export default function App() {
               <span className="font-extrabold text-base tracking-tight bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-blue-400 dark:to-indigo-300 bg-clip-text text-transparent">
                 ClassHub
               </span>
-              <span className="text-[10px] uppercase font-bold tracking-widest px-1.5 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-900">
-                PSGIM
-              </span>
-              <span className="text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-                Beta v0.9
+              <span className={`text-[10px] uppercase font-black tracking-wider px-2 py-0.5 rounded border ${
+                isFaculty 
+                  ? "bg-purple-100 dark:bg-purple-950 text-purple-700 dark:text-purple-300 border-purple-300 dark:border-purple-800"
+                  : "bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800"
+              }`}>
+                {isFaculty ? "Faculty Admin Mode" : "Student Mode"}
               </span>
             </div>
             <p className="text-[10px] text-slate-500 dark:text-slate-400 font-medium">
-              MBA Trimester & Case Delivery Portal
+              {currentClass ? `Class: ${currentClass.name} (${currentClass.section || "Sec 1"})` : "No Class Selected"}
             </p>
           </div>
         </div>
 
-        {/* Persona quick switch */}
-        <div className="hidden md:flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs">
-          <span className="px-2 font-medium text-slate-500 dark:text-slate-400 flex items-center gap-1 text-[11px]">
-            <Icon name="user" className="w-3.5 h-3.5" /> Persona:
-          </span>
-          {DEMO_PERSONAS.map((p) => {
-            const isCurrent = user.email === p.email;
-            return (
-              <button
-                key={p.role}
-                onClick={() => {
-                  setUser(p);
-                  showToast(`Viewing as ${p.name} (${p.role.toUpperCase()})`, "info");
-                }}
-                className={`px-3 py-1.5 rounded-xl font-medium transition text-xs ${
-                  isCurrent
-                    ? "bg-white dark:bg-slate-900 text-blue-700 dark:text-blue-400 shadow-sm font-semibold"
-                    : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-                }`}
-              >
-                {p.name.split(" ")[0]} ({p.role.slice(0, 4)})
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Theme and User Profile */}
-        <div className="flex items-center gap-2">
-          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-            {currentBatch.name}
+        {/* Faculty Active Class Picker */}
+        {isFaculty && data.classes.length > 0 && (
+          <div className="hidden md:flex items-center gap-2">
+            <span className="text-xs text-slate-400 font-medium">Managing Class:</span>
+            <select
+              value={selectedClassId}
+              onChange={(e) => setSelectedClassId(e.target.value)}
+              className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:outline-none"
+            >
+              {data.classes.map(c => (
+                <option key={c.id} value={c.id}>{c.name} ({c.section})</option>
+              ))}
+            </select>
           </div>
+        )}
+
+        {/* Profile and Switcher Controls */}
+        <div className="flex items-center gap-2.5">
+          <button
+            onClick={() => setShowSwitchUserModal(true)}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-blue-300 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/60 text-blue-700 dark:text-blue-300 text-xs font-bold hover:bg-blue-100 transition shadow-sm"
+          >
+            <Icon name="user" className="w-3.5 h-3.5" />
+            <span>Switch Role / User</span>
+          </button>
 
           <button
             onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
-            className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300"
-            title="Toggle Light/Dark Theme"
+            className="p-2 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 transition"
+            title="Toggle Theme"
           >
             <Icon name={theme === 'light' ? 'moon' : 'sun'} className="w-4 h-4" />
           </button>
-
-          <div className="flex items-center gap-2 pl-2 border-l border-slate-200 dark:border-slate-800">
-            <div className="w-8 h-8 rounded-full bg-indigo-600 text-white flex items-center justify-center text-xs font-bold shadow-sm">
-              {user.name.split(" ").map(w => w[0]).join("")}
-            </div>
-            <div className="hidden lg:block text-left text-xs leading-tight">
-              <div className="font-semibold text-slate-800 dark:text-slate-200">
-                {user.name}
-              </div>
-              <div className="text-[10px] text-slate-400 capitalize">
-                {user.role}
-              </div>
-            </div>
-          </div>
         </div>
       </header>
 
-      {/* Main Container */}
+      {/* Main Layout Area */}
       <div className="flex-1 flex max-w-[1600px] w-full mx-auto">
         
         {/* Desktop Sidebar */}
-        <aside className="hidden md:flex flex-col w-64 p-4 border-r border-slate-200/80 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm sticky top-[57px] h-[calc(100vh-57px)] justify-between">
+        <aside className="hidden md:flex flex-col w-64 p-4 border-r border-slate-200 dark:border-slate-800 bg-white/40 dark:bg-slate-900/40 backdrop-blur-sm sticky top-[57px] h-[calc(100vh-57px)] justify-between">
           <div className="space-y-6">
             
-            {/* Tabs */}
-            <div>
-              <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
-                Workspaces
-              </p>
-              <nav className="space-y-1">
-                {navTabs.map(t => {
-                  const active = activeTab === t.id;
-                  return (
-                    <button
-                      key={t.id}
-                      onClick={() => setActiveTab(t.id)}
-                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl font-medium text-xs transition-all ${
-                        active
-                          ? "bg-blue-600 text-white font-semibold shadow-md shadow-blue-600/20"
-                          : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60"
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <Icon name={t.icon} className={`w-4 h-4 ${active ? "text-white" : "text-slate-400 dark:text-slate-500"}`} />
-                        <span>{t.label}</span>
-                      </div>
-                      {t.badge > 0 && (
-                        <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                          active ? "bg-white/20 text-white" : "bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300"
-                        }`}>
-                          {t.badge}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </nav>
+            {/* Active User Card */}
+            <div className="p-3 rounded-2xl bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 text-xs">
+              <div className="text-[10px] uppercase font-bold text-slate-400">Logged In As</div>
+              <div className="font-extrabold text-slate-900 dark:text-white truncate mt-0.5">{currentUser.name}</div>
+              <div className="text-[11px] text-slate-500 truncate">{currentUser.email}</div>
+              {isStudent && (
+                <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-700 font-mono text-[11px] text-blue-600 dark:text-blue-400">
+                  Roll: {currentUser.roll || "N/A"}
+                </div>
+              )}
             </div>
 
-            {/* Batch Selector */}
-            <div>
-              <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2">
-                Active Cohort
+            {/* Navigation Tabs */}
+            <nav className="space-y-1">
+              <p className="px-3 text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                {isFaculty ? "Faculty Controls" : "My Student Portal"}
               </p>
-              <div className="space-y-1">
-                {data.batches.map(b => (
+              {navTabs.map(t => {
+                const active = activeTab === t.id;
+                return (
                   <button
-                    key={b.id}
-                    onClick={() => {
-                      setSelectedBatch(b.id);
-                      showToast(`Switched cohort view to ${b.name}`, "info");
-                    }}
-                    className={`w-full text-left px-3 py-2 rounded-xl text-xs font-semibold flex items-center justify-between transition ${
-                      selectedBatch === b.id 
-                        ? "bg-slate-100 dark:bg-slate-800 text-blue-600 dark:text-blue-400 border border-slate-200 dark:border-slate-700" 
-                        : "text-slate-500 hover:text-slate-800 dark:hover:text-slate-200"
+                    key={t.id}
+                    onClick={() => setActiveTab(t.id)}
+                    className={`w-full flex items-center justify-between px-3 py-2 rounded-xl text-xs font-medium transition ${
+                      active
+                        ? "bg-blue-600 text-white font-bold shadow-md shadow-blue-600/20"
+                        : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60"
                     }`}
                   >
-                    <span>🎓 {b.name}</span>
-                    <span className="text-[10px] text-slate-400">{b.students.length} students</span>
+                    <div className="flex items-center gap-2.5">
+                      <Icon name={t.icon} className={`w-4 h-4 ${active ? "text-white" : "text-slate-400"}`} />
+                      <span>{t.label}</span>
+                    </div>
+                    {t.badge > 0 && (
+                      <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                        active ? "bg-white/20 text-white" : "bg-blue-100 dark:bg-blue-900/60 text-blue-700 dark:text-blue-300"
+                      }`}>
+                        {t.badge}
+                      </span>
+                    )}
                   </button>
-                ))}
-              </div>
-            </div>
+                );
+              })}
+            </nav>
 
           </div>
 
-          {/* Sidebar Footnote */}
-          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2 text-xs text-slate-500">
+          {/* Bottom Actions */}
+          <div className="pt-4 border-t border-slate-200 dark:border-slate-800 space-y-2">
             <button
-              onClick={handleExportData}
-              className="w-full flex items-center gap-2 px-3 py-1.5 rounded-lg border border-slate-200 dark:border-slate-750 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-[11px] font-medium transition"
+              onClick={handleExportBackup}
+              className="w-full flex items-center gap-2 px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 text-[11px] font-semibold transition"
             >
               <Icon name="download" className="w-3.5 h-3.5 text-blue-500" />
               <span>Export JSON Backup</span>
             </button>
-            <div className="flex items-center justify-between px-1">
-              <button 
-                onClick={handleResetData}
-                className="text-slate-400 hover:text-rose-500 transition font-medium text-[11px]"
+            {isFaculty && (
+              <button
+                onClick={handleResetToClean}
+                className="w-full text-left px-3 py-1 text-slate-400 hover:text-rose-500 text-[11px] font-medium transition"
               >
-                Reset Demo Data
+                Clean Wipe (Zero Data)
               </button>
-              <span className="text-[10px] text-slate-400">Beta v0.9.4</span>
-            </div>
+            )}
           </div>
         </aside>
 
-        {/* Main Content Pane */}
         <main className="flex-1 p-4 lg:p-8 pb-24 md:pb-8 overflow-y-auto">
           
           {/* TAB 1: DASHBOARD */}
@@ -784,55 +516,122 @@ export default function App() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Hello, {user.name.split(" ")[0]} 👋
+                    Hello, {currentUser.name.split(" ")[0]} 👋
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    {isFaculty ? "Faculty Management Suite • PSG Institute of Management" : "MBA Trimester Workspace & Deliverables"}
+                    {isFaculty 
+                      ? "Faculty Management Console • Create and administer classes, 9 subjects, and student cohorts."
+                      : `Enrolled in ${currentClass?.name || "Class"} • Showing your respective faculties and subjects.`}
                   </p>
                 </div>
-                
+
                 <div className="flex items-center gap-2">
                   {isFaculty ? (
                     <>
                       <button
-                        onClick={() => {
-                          const initial = {};
-                          currentBatch.students.forEach(s => { initial[s.email] = true; });
-                          setRollCallRoster(initial);
-                          setShowRollCallModal(true);
-                        }}
-                        className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-semibold text-xs transition border border-slate-300 dark:border-slate-700 shadow-sm"
+                        onClick={() => setShowClassModal(true)}
+                        className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition"
                       >
-                        <Icon name="rollCall" className="w-4 h-4 text-emerald-600" />
-                        <span>Lecture Roll-Call</span>
+                        <Icon name="plus" className="w-4 h-4" />
+                        <span>Create Class</span>
                       </button>
-                      <button
-                        onClick={() => setShowLogCpModal(true)}
-                        className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-xs transition shadow-sm"
-                      >
-                        <Icon name="star" className="w-4 h-4 text-amber-300" />
-                        <span>Log CP Points</span>
-                      </button>
+                      {currentClass && (
+                        <button
+                          onClick={() => setShowSubjectModal(true)}
+                          className="flex items-center gap-2 px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-xs hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                        >
+                          <Icon name="plus" className="w-4 h-4 text-blue-600" />
+                          <span>Add Subject & Faculty</span>
+                        </button>
+                      )}
                     </>
                   ) : (
                     <button
                       onClick={() => setShowTaskModal(true)}
-                      className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition shadow-sm"
+                      className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition shadow-sm"
                     >
                       <Icon name="plus" className="w-4 h-4" />
-                      <span>Add Task</span>
+                      <span>Add Study Task</span>
                     </button>
                   )}
                 </div>
               </div>
 
-              {/* Attendance Warning Banner */}
-              {isStudent && studentAttendanceSummary.some(s => s.isAtRisk) && (
+              {/* Zero-Class Warning for First Launch */}
+              {!currentClass && (
+                <div className="p-8 text-center bg-white dark:bg-slate-900 border-2 border-dashed border-slate-300 dark:border-slate-800 rounded-2xl space-y-4">
+                  <div className="w-12 h-12 mx-auto rounded-2xl bg-blue-100 dark:bg-blue-950 flex items-center justify-center text-blue-600">
+                    <Icon name="academic" className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-extrabold text-base text-slate-900 dark:text-white">
+                      No Classes Created Yet
+                    </h3>
+                    <p className="text-xs text-slate-500 max-w-md mx-auto mt-1">
+                      As a faculty member, you have full admin permissions. Click "Create Class" above to set up your first cohort (e.g. MBA Batch 2025-27 Section A), then add up to 9 subjects with their respective faculties.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => setShowClassModal(true)}
+                    className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition shadow-sm"
+                  >
+                    + Create First Class
+                  </button>
+                </div>
+              )}
+
+              {/* Metrics Grid */}
+              {currentClass && (
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+                  <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                      Enrolled Students
+                    </div>
+                    <div className="text-2xl font-black text-slate-900 dark:text-white">
+                      {classStudents.length}
+                    </div>
+                    <div className="text-[11px] text-slate-500 mt-1">In this class</div>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                      Subjects & Professors
+                    </div>
+                    <div className="text-2xl font-black text-blue-600 dark:text-blue-400">
+                      {classSubjects.length}
+                    </div>
+                    <div className="text-[11px] text-slate-500 mt-1">{classFaculties.length} faculty members</div>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                      Assignments
+                    </div>
+                    <div className="text-2xl font-black text-indigo-600 dark:text-indigo-400">
+                      {classAssignments.length}
+                    </div>
+                    <div className="text-[11px] text-slate-500 mt-1">For this syllabus</div>
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+                    <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
+                      Roll-Call Sessions
+                    </div>
+                    <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
+                      {data.rollCalls.filter(r => r.classId === effectiveClassId).length}
+                    </div>
+                    <div className="text-[11px] text-slate-500 mt-1">Classes conducted</div>
+                  </div>
+                </div>
+              )}
+
+              {/* Student Debarment Alert if At Risk */}
+              {isStudent && studentAttendanceStats.some(s => s.isAtRisk) && (
                 <div className="p-4 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 text-rose-900 dark:text-rose-200 flex items-start gap-3">
                   <Icon name="alert" className="w-5 h-5 text-rose-600 flex-shrink-0 mt-0.5" />
                   <div className="flex-1 text-xs">
                     <span className="font-bold">Debarment Warning:</span> You have an attendance shortage in{" "}
-                    {studentAttendanceSummary.filter(s => s.isAtRisk).map(s => `${s.subject.name} (${s.percentage}%)`).join(", ")}.
+                    {studentAttendanceStats.filter(s => s.isAtRisk).map(s => `${s.subject.name} (${s.percentage}%)`).join(", ")}.
                     PSGIM regulations require a minimum of 75% attendance to sit for end-term comprehensive exams.
                   </div>
                   <button 
@@ -844,207 +643,436 @@ export default function App() {
                 </div>
               )}
 
-              {/* Metric Highlights */}
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                    {isFaculty ? "Ungraded Submissions" : "Active Tasks"}
-                  </div>
-                  <div className="text-2xl font-extrabold text-slate-900 dark:text-white">
-                    {isFaculty ? facultyStats?.pendingSubsCount : userTasks.filter(t => !t.done).length}
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-1">
-                    {isFaculty ? "Awaiting evaluation" : `${userTasks.filter(t => t.done).length} marked completed`}
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                    {isFaculty ? "Total CP Logs" : "Case Submissions"}
-                  </div>
-                  <div className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400">
-                    {isFaculty ? facultyStats?.totalCpLogged : data.submissions.filter(s => s.studentEmail === user.email).length}
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-1">
-                    {isFaculty ? "Discussion points" : `Out of ${data.assignments.length} assignments`}
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                    Syndicate Teams
-                  </div>
-                  <div className="text-2xl font-extrabold text-emerald-600 dark:text-emerald-400">
-                    {userTeams.length}
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-1">
-                    Assigned groups
-                  </div>
-                </div>
-
-                <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-                  <div className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                    Next Academic Event
-                  </div>
-                  <div className="text-sm font-bold text-slate-900 dark:text-white truncate">
-                    {data.events[0]?.title || "No scheduled events"}
-                  </div>
-                  <div className="text-[11px] text-slate-500 mt-1">
-                    {data.events[0]?.at ? formatDate(data.events[0].at) : ""}
-                  </div>
-                </div>
-              </div>
-
-              {/* Tasks & Assignments Overview */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                
-                {/* Left: Quick Tasks */}
-                <div className="lg:col-span-2 space-y-5">
-                  <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 font-bold text-sm text-slate-900 dark:text-white">
-                        <Icon name="clock" className="w-4 h-4 text-blue-600" />
-                        <span>Action Items & Urgent Deadlines</span>
-                      </div>
-                      <button onClick={() => setActiveTab("tasks")} className="text-xs font-semibold text-blue-600 hover:underline">
-                        View Checklist →
-                      </button>
+              {/* Respective Faculties & 9 Subjects Card */}
+              {currentClass && (
+                <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h3 className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
+                        <Icon name="subjects" className="w-4 h-4 text-blue-600" />
+                        <span>Curriculum Subjects & Assigned Faculties</span>
+                      </h3>
+                      <p className="text-[11px] text-slate-400 mt-0.5">
+                        {isStudent ? "You can only view your enrolled class's subjects and respective professors." : "Manage the 9 subjects and map each to its designated faculty member."}
+                      </p>
                     </div>
 
-                    <div className="space-y-2">
-                      {userTasks.filter(t => !t.done).slice(0, 4).map(task => {
-                        return (
-                          <div key={task.id} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/80 dark:border-slate-750 flex items-center justify-between text-xs">
-                            <div className="flex items-center gap-3">
-                              <input
-                                type="checkbox"
-                                checked={task.done}
-                                onChange={() => {
-                                  setData(prev => ({
-                                    ...prev,
-                                    tasks: prev.tasks.map(t => t.id === task.id ? { ...t, done: true, doneBy: user.name } : t)
-                                  }));
-                                  showToast("Task completed!", "success");
-                                }}
-                                className="w-4 h-4 rounded text-blue-600 accent-blue-600 cursor-pointer"
-                              />
-                              <div>
-                                <div className="font-semibold text-slate-800 dark:text-slate-100">{task.title}</div>
-                                <div className="text-[11px] text-slate-400">{task.topic} • Due: {formatDate(task.due)}</div>
-                              </div>
-                            </div>
-                            <span className={`text-[10px] font-bold px-2 py-0.5 rounded uppercase ${
-                              task.priority === 'High' ? 'bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300' : 'bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300'
-                            }`}>
-                              {task.priority}
+                    {isFaculty && (
+                      <button
+                        onClick={() => setShowSubjectModal(true)}
+                        className="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-xs font-bold transition"
+                      >
+                        + Add Subject
+                      </button>
+                    )}
+                  </div>
+
+                  {classSubjects.length === 0 ? (
+                    <div className="p-6 text-center text-xs text-slate-400 bg-slate-50 dark:bg-slate-850 rounded-xl">
+                      No subjects added to this class yet. {isFaculty && "Click '+ Add Subject' to configure the 9 subjects."}
+                    </div>
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {classSubjects.map((sub, idx) => (
+                        <div key={sub.id} className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 text-xs space-y-2">
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
+                              {sub.code || `SUB-${idx+1}`}
+                            </span>
+                            <span className="text-[10px] text-slate-400 font-semibold">
+                              {sub.credits || 3} Credits
                             </span>
                           </div>
-                        );
-                      })}
 
-                      {userTasks.filter(t => !t.done).length === 0 && (
-                        <p className="text-xs text-slate-400 py-3 text-center">No pending personal or team tasks.</p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Assignments Summary Card */}
-                  <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 font-bold text-sm text-slate-900 dark:text-white">
-                        <Icon name="assignments" className="w-4 h-4 text-indigo-600" />
-                        <span>Trimester Case Studies</span>
-                      </div>
-                      <button onClick={() => setActiveTab("asg")} className="text-xs font-semibold text-blue-600 hover:underline">
-                        Open Portal →
-                      </button>
-                    </div>
-
-                    <div className="space-y-2">
-                      {data.assignments.slice(0, 3).map(asg => {
-                        const sub = data.submissions.find(s => s.asgId === asg.id && s.studentEmail === user.email);
-                        return (
-                          <div key={asg.id} className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
-                            <div>
-                              <div className="font-bold text-slate-900 dark:text-slate-100">{asg.title}</div>
-                              <div className="text-[11px] text-slate-400">Max {asg.maxMarks} marks • Due {formatDate(asg.due)}</div>
-                            </div>
-                            {isFaculty ? (
-                              <button onClick={() => setActiveTab("asg")} className="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-[11px] font-bold">
-                                Review Submissions
-                              </button>
-                            ) : (
-                              <span className={`text-[11px] font-bold px-2 py-0.5 rounded-full ${
-                                sub ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300' : 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
-                              }`}>
-                                {sub ? (sub.marks !== null ? `Graded: ${sub.marks}/${asg.maxMarks}` : "Submitted") : "Pending"}
-                              </span>
-                            )}
+                          <div className="font-bold text-slate-900 dark:text-slate-100 text-sm">
+                            {sub.name}
                           </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                </div>
 
-                {/* Right: Pinned Circulars */}
-                <div className="space-y-5">
-                  <div className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2 font-bold text-sm text-slate-900 dark:text-white">
-                        <Icon name="pin" className="w-4 h-4 text-blue-600" />
-                        <span>Pinned Circulars</span>
-                      </div>
-                      <button onClick={() => setActiveTab("notices")} className="text-xs font-semibold text-blue-600 hover:underline">
-                        All →
-                      </button>
-                    </div>
-
-                    <div className="space-y-2.5">
-                      {data.notices.slice(0, 3).map(n => (
-                        <div key={n.id} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-800 text-xs">
-                          <span className="font-bold text-blue-600 dark:text-blue-400 text-[10px] uppercase tracking-wider">{n.category}</span>
-                          <div className="font-bold text-slate-800 dark:text-slate-100 mt-0.5">{n.title}</div>
-                          <p className="text-[11px] text-slate-500 line-clamp-2 mt-1">{n.msg}</p>
+                          <div className="pt-2 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between text-[11px]">
+                            <div className="text-slate-600 dark:text-slate-300 truncate">
+                              👨‍🏫 <span className="font-semibold">{sub.facultyName || "Faculty"}</span>
+                            </div>
+                            <span className="text-[10px] text-slate-400">
+                              {sub.totalClasses || 24} Classes
+                            </span>
+                          </div>
                         </div>
                       ))}
                     </div>
-                  </div>
+                  )}
                 </div>
-
-              </div>
+              )}
 
             </div>
           )}
 
-          {/* TAB 2: FACULTY CP & COLD-CALL TRACKER */}
-          {activeTab === "cpTracker" && isFaculty && (
+          {/* TAB 2: FACULTY - CLASSES & SUBJECTS SETUP */}
+          {activeTab === "classes" && isFaculty && (
             <div className="space-y-6 animate-fadeIn">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Class Participation (CP) & Cold-Call Tracker
+                    Class & Subject Configuration
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Log Harvard-style case contributions, framework rigors, and cold-call performances in real time.
+                    Set up your MBA classes and define the 9 subjects and their respective faculty members.
+                  </p>
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setShowClassModal(true)}
+                    className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition"
+                  >
+                    + New Class
+                  </button>
+                </div>
+              </div>
+
+              {/* Classes List */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {data.classes.map(c => {
+                  const subs = data.subjects.filter(s => s.classId === c.id);
+                  const stus = data.students.filter(s => s.classId === c.id);
+                  const isCurrent = c.id === selectedClassId;
+
+                  return (
+                    <div 
+                      key={c.id} 
+                      className={`p-5 rounded-2xl border transition bg-white dark:bg-slate-900 space-y-4 ${
+                        isCurrent ? "border-blue-500 ring-2 ring-blue-500/20 shadow-md" : "border-slate-200 dark:border-slate-800"
+                      }`}
+                    >
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+                            Academic Cohort
+                          </span>
+                          <h3 className="font-black text-lg text-slate-900 dark:text-white">
+                            {c.name} ({c.section})
+                          </h3>
+                          <div className="text-xs text-slate-400">{c.academicYear || "Year 2025-27"}</div>
+                        </div>
+
+                        <div className="flex items-center gap-1.5">
+                          <button
+                            onClick={() => {
+                              setSelectedClassId(c.id);
+                              showToast(`Switched active management to ${c.name}`, "info");
+                            }}
+                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition ${
+                              isCurrent 
+                                ? "bg-blue-600 text-white" 
+                                : "bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300"
+                            }`}
+                          >
+                            {isCurrent ? "Active Class" : "Select Class"}
+                          </button>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 gap-2 text-xs">
+                        <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-850">
+                          <span className="text-slate-400 block text-[10px] font-bold">STUDENTS</span>
+                          <span className="font-extrabold text-sm">{stus.length} Candidates</span>
+                        </div>
+                        <div className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-850">
+                          <span className="text-slate-400 block text-[10px] font-bold">SUBJECTS</span>
+                          <span className="font-extrabold text-sm">{subs.length} Registered</span>
+                        </div>
+                      </div>
+
+                      <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex justify-between items-center text-xs">
+                        <button
+                          onClick={() => {
+                            setSelectedClassId(c.id);
+                            setShowSubjectModal(true);
+                          }}
+                          className="font-bold text-blue-600 hover:underline"
+                        >
+                          + Add Subject to this Class
+                        </button>
+                        <button
+                          onClick={() => {
+                            setConfirmModal({
+                              title: `Delete Class ${c.name}?`,
+                              message: "This will remove this class and its respective subjects and student roster.",
+                              onConfirm: () => {
+                                setData(prev => ({
+                                  ...prev,
+                                  classes: prev.classes.filter(x => x.id !== c.id),
+                                  subjects: prev.subjects.filter(s => s.classId !== c.id),
+                                  students: prev.students.filter(s => s.classId !== c.id)
+                                }));
+                                setConfirmModal(null);
+                                showToast("Class deleted.", "info");
+                              }
+                            });
+                          }}
+                          className="text-slate-400 hover:text-rose-500"
+                        >
+                          <Icon name="trash" className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+
+          {/* TAB 3: FACULTY - COHORT STUDENTS ENROLLMENT */}
+          {activeTab === "students" && isFaculty && (
+            <div className="space-y-6 animate-fadeIn">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
+                    {currentClass?.name || "Class"} • Student Roster
+                  </h1>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Only faculty can enroll students into this class.
+                  </p>
+                </div>
+                {currentClass && (
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => setShowStudentModal(true)}
+                      className="px-3.5 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition"
+                    >
+                      + Add Student
+                    </button>
+                    <button
+                      onClick={() => setShowCsvStudentModal(true)}
+                      className="px-3.5 py-2 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-bold hover:bg-slate-100 dark:hover:bg-slate-800 transition"
+                    >
+                      Bulk CSV Import
+                    </button>
+                  </div>
+                )}
+              </div>
+
+              {classStudents.length === 0 ? (
+                <div className="p-8 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-xs text-slate-400">
+                  No students enrolled in this class yet. Click "+ Add Student" or "Bulk CSV Import" to register students.
+                </div>
+              ) : (
+                <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
+                  <table className="w-full text-left text-xs">
+                    <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
+                      <tr>
+                        <th className="p-3.5">Student Name</th>
+                        <th className="p-3.5">Roll No</th>
+                        <th className="p-3.5">Email</th>
+                        <th className="p-3.5 text-right">Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
+                      {classStudents.map(stu => (
+                        <tr key={stu.id} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition">
+                          <td className="p-3.5 font-bold text-slate-900 dark:text-slate-100">
+                            {stu.name}
+                          </td>
+                          <td className="p-3.5 font-mono text-slate-500">
+                            {stu.roll}
+                          </td>
+                          <td className="p-3.5 font-mono text-slate-500">
+                            {stu.email}
+                          </td>
+                          <td className="p-3.5 text-right">
+                            <button
+                              onClick={() => {
+                                // Login preview as this student!
+                                setCurrentUser({
+                                  role: "student",
+                                  name: stu.name,
+                                  email: stu.email,
+                                  roll: stu.roll,
+                                  classId: stu.classId
+                                });
+                                setActiveTab("home");
+                                showToast(`Previewing as student ${stu.name}`, "info");
+                              }}
+                              className="px-2.5 py-1 rounded-lg bg-blue-50 dark:bg-blue-950 text-blue-600 dark:text-blue-300 font-bold text-[11px] hover:bg-blue-100 transition mr-2"
+                            >
+                              View As Student
+                            </button>
+                            <button
+                              onClick={() => {
+                                setData(prev => ({
+                                  ...prev,
+                                  students: prev.students.filter(s => s.id !== stu.id)
+                                }));
+                                showToast("Student removed from class.", "info");
+                              }}
+                              className="text-slate-400 hover:text-rose-500 transition"
+                            >
+                              <Icon name="x" className="w-4 h-4 inline" />
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 4: FACULTY - LECTURE ROLL CALL */}
+          {activeTab === "rollcall" && isFaculty && (
+            <div className="space-y-6 animate-fadeIn">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
+                    Lecture Roll-Call Session
+                  </h1>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Conduct roll call for any of the 9 subjects. Attendance percentage and debarment radars update live.
+                  </p>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <select
+                    value={rollCallSubId}
+                    onChange={(e) => setRollCallSubId(e.target.value)}
+                    className="px-3 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700"
+                  >
+                    <option value="">-- Choose Subject --</option>
+                    {classSubjects.map(s => (
+                      <option key={s.id} value={s.id}>{s.code} - {s.name} ({s.facultyName})</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              {!rollCallSubId ? (
+                <div className="p-8 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-xs text-slate-400">
+                  Please select one of the subjects above to begin taking roll call.
+                </div>
+              ) : (
+                <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5 space-y-4">
+                  <div className="flex items-center justify-between text-xs pb-3 border-b border-slate-200 dark:border-slate-800">
+                    <span className="font-bold text-slate-600 dark:text-slate-300">
+                      Cohort: {currentClass?.name} • {classStudents.length} Students
+                    </span>
+                    <div className="flex gap-2">
+                      <button
+                        onClick={() => {
+                          const updated = {};
+                          classStudents.forEach(s => { updated[s.email] = true; });
+                          setRollCallRoster(updated);
+                        }}
+                        className="px-2.5 py-1 text-[11px] rounded font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
+                      >
+                        Mark All Present
+                      </button>
+                      <button
+                        onClick={() => {
+                          const updated = {};
+                          classStudents.forEach(s => { updated[s.email] = false; });
+                          setRollCallRoster(updated);
+                        }}
+                        className="px-2.5 py-1 text-[11px] rounded font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300"
+                      >
+                        Mark All Absent
+                      </button>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    {classStudents.map(stu => {
+                      const isPresent = rollCallRoster[stu.email] !== false;
+                      return (
+                        <div key={stu.email} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-850 flex items-center justify-between text-xs">
+                          <div>
+                            <div className="font-bold text-slate-800 dark:text-slate-100">{stu.name}</div>
+                            <div className="text-[11px] text-slate-400 font-mono">{stu.roll}</div>
+                          </div>
+
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => setRollCallRoster(prev => ({ ...prev, [stu.email]: true }))}
+                              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                                isPresent 
+                                  ? "bg-emerald-600 text-white shadow-sm" 
+                                  : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
+                              }`}
+                            >
+                              Present
+                            </button>
+                            <button
+                              onClick={() => setRollCallRoster(prev => ({ ...prev, [stu.email]: false }))}
+                              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
+                                !isPresent 
+                                  ? "bg-rose-600 text-white shadow-sm" 
+                                  : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
+                              }`}
+                            >
+                              Absent
+                            </button>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+
+                  <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-end">
+                    <button
+                      onClick={() => {
+                        const presentList = classStudents
+                          .filter(s => rollCallRoster[s.email] !== false)
+                          .map(s => s.email);
+
+                        const newRollCall = {
+                          id: `rc-${Date.now()}`,
+                          classId: effectiveClassId,
+                          subjectId: rollCallSubId,
+                          date: new Date().toISOString(),
+                          presentEmails: presentList
+                        };
+
+                        setData(prev => ({
+                          ...prev,
+                          rollCalls: [newRollCall, ...prev.rollCalls]
+                        }));
+
+                        showToast("Lecture roll-call committed to student attendance records!", "success");
+                      }}
+                      className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition"
+                    >
+                      Commit Attendance Record
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* TAB 5: FACULTY - CP & COLD CALL TRACKER */}
+          {activeTab === "cp" && isFaculty && (
+            <div className="space-y-6 animate-fadeIn">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div>
+                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
+                    Class Participation (CP) Tracker
+                  </h1>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                    Log Harvard-style case contribution points for students in {currentClass?.name}.
                   </p>
                 </div>
                 <button
-                  onClick={() => setShowLogCpModal(true)}
-                  className="flex items-center gap-2 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs shadow-sm transition"
+                  onClick={() => setShowCpModal(true)}
+                  className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition shadow-sm"
                 >
-                  <Icon name="plus" className="w-4 h-4" />
-                  <span>Log CP Entry</span>
+                  + Log CP Score
                 </button>
               </div>
 
-              {/* CP Scoreboard */}
               <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-                <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                  <span className="font-bold text-xs uppercase tracking-wider text-slate-500">
-                    Cohort {currentBatch.name} • Case Participation Tally
+                <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
+                  <span className="font-bold uppercase tracking-wider text-slate-500">
+                    Cohort CP Leaderboard ({classStudents.length} Students)
                   </span>
-                  <span className="text-xs text-slate-400">Total Logs: {data.cpLogs.length}</span>
+                  <span className="text-slate-400">Total Logs: {data.cpLogs.filter(c => c.classId === effectiveClassId).length}</span>
                 </div>
 
                 <div className="overflow-x-auto">
@@ -1053,42 +1081,34 @@ export default function App() {
                       <tr>
                         <th className="p-3.5">Student</th>
                         <th className="p-3.5">Roll No</th>
-                        <th className="p-3.5">Total Points</th>
-                        <th className="p-3.5">Recent Quality / Category</th>
-                        <th className="p-3.5">Latest Faculty Note</th>
-                        <th className="p-3.5 text-right">Quick Scoring</th>
+                        <th className="p-3.5">Total CP</th>
+                        <th className="p-3.5">Recent Quality</th>
+                        <th className="p-3.5 text-right">Quick Award</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                      {currentBatch.students.map(stu => {
-                        const studentLogs = data.cpLogs.filter(l => l.studentEmail === stu.email);
-                        const totalPoints = studentLogs.reduce((acc, curr) => acc + curr.points, 0);
+                      {classStudents.map(stu => {
+                        const studentLogs = data.cpLogs.filter(l => l.studentEmail === stu.email && l.classId === effectiveClassId);
+                        const total = studentLogs.reduce((acc, curr) => acc + curr.points, 0);
                         const latest = studentLogs[0];
 
                         return (
                           <tr key={stu.email} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition">
-                            <td className="p-3.5 font-bold text-slate-900 dark:text-slate-100">
-                              {stu.name}
-                            </td>
-                            <td className="p-3.5 font-mono text-slate-500">
-                              {stu.roll}
-                            </td>
+                            <td className="p-3.5 font-bold text-slate-900 dark:text-slate-100">{stu.name}</td>
+                            <td className="p-3.5 font-mono text-slate-500">{stu.roll}</td>
                             <td className="p-3.5">
                               <span className="px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-extrabold text-xs">
-                                ⭐ {totalPoints} pts
+                                ⭐ {total} pts
                               </span>
                             </td>
                             <td className="p-3.5">
                               {latest ? (
-                                <span className="px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-[11px] font-semibold border border-indigo-200 dark:border-indigo-900">
-                                  {latest.category}
+                                <span className="px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-[11px] font-semibold">
+                                  {latest.category} ({latest.points}pts)
                                 </span>
                               ) : (
-                                <span className="text-slate-400 italic">No participation yet</span>
+                                <span className="text-slate-400 italic">No score yet</span>
                               )}
-                            </td>
-                            <td className="p-3.5 text-slate-600 dark:text-slate-400 max-w-xs truncate">
-                              {latest ? latest.note : "—"}
                             </td>
                             <td className="p-3.5 text-right space-x-1">
                               {[1, 2, 3].map(pts => (
@@ -1097,18 +1117,20 @@ export default function App() {
                                   onClick={() => {
                                     const newLog = {
                                       id: `cp-${Date.now()}-${pts}`,
+                                      classId: effectiveClassId,
+                                      subjectId: classSubjects[0]?.id || "sub-1",
                                       studentEmail: stu.email,
                                       studentName: stu.name,
-                                      subjectId: data.subjects[0]?.id || "s1",
+                                      facultyEmail: currentUser.email,
                                       points: pts,
-                                      category: pts === 3 ? "Breakthrough Insight" : pts === 2 ? "Framework Rigor" : "Cold-Call Response",
-                                      note: `Quick ${pts}-pt score logged during lecture.`,
+                                      category: pts === 3 ? "Breakthrough Insight" : pts === 2 ? "Framework Rigor" : "Cold-Call",
+                                      note: `Quick +${pts} awarded during discussion.`,
                                       date: new Date().toISOString()
                                     };
                                     setData(prev => ({ ...prev, cpLogs: [newLog, ...prev.cpLogs] }));
-                                    showToast(`Awarded +${pts} CP points to ${stu.name}!`, "success");
+                                    showToast(`Awarded +${pts} CP to ${stu.name}!`, "success");
                                   }}
-                                  className="px-2 py-1 rounded bg-slate-100 hover:bg-amber-100 dark:bg-slate-800 dark:hover:bg-amber-950 text-slate-700 hover:text-amber-800 dark:text-slate-300 dark:hover:text-amber-200 font-bold text-[10px] transition border border-slate-200 dark:border-slate-700"
+                                  className="px-2 py-1 rounded bg-slate-100 hover:bg-amber-100 dark:bg-slate-800 dark:hover:bg-amber-950 text-slate-700 hover:text-amber-800 dark:text-slate-300 dark:hover:text-amber-200 font-bold text-[10px] transition"
                                 >
                                   +{pts}
                                 </button>
@@ -1124,400 +1146,162 @@ export default function App() {
             </div>
           )}
 
-          {/* TAB 3: FACULTY ROLL CALL */}
-          {activeTab === "rollCallTab" && isFaculty && (
+          {/* TAB: STUDENT - MY 9 SUBJECTS & FACULTY */}
+          {activeTab === "subjects" && isStudent && (
             <div className="space-y-6 animate-fadeIn">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Lecture Roll-Call & Attendance Session
-                  </h1>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Conduct roll-call for today's lecture. Student attendance counters and debarment radars update immediately.
-                  </p>
-                </div>
-                <div className="flex items-center gap-3">
-                  <select
-                    value={rollCallSubject}
-                    onChange={(e) => setRollCallSubject(e.target.value)}
-                    className="px-3 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700"
-                  >
-                    {data.subjects.map(s => (
-                      <option key={s.id} value={s.id}>{s.code} - {s.name}</option>
-                    ))}
-                  </select>
-                </div>
+              <div>
+                <h1 className="text-2xl font-black text-slate-900 dark:text-white">
+                  My 9 Curriculum Subjects & Respective Faculty
+                </h1>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Enrolled in {currentClass?.name}. Only your respective professors and course codes are shown.
+                </p>
               </div>
 
-              <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5 space-y-4">
-                <div className="flex items-center justify-between text-xs pb-3 border-b border-slate-200 dark:border-slate-800">
-                  <span className="font-bold text-slate-600 dark:text-slate-300">
-                    Cohort {currentBatch.name} • {currentBatch.students.length} Candidates
-                  </span>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => {
-                        const updated = {};
-                        currentBatch.students.forEach(s => { updated[s.email] = true; });
-                        setRollCallRoster(updated);
-                      }}
-                      className="px-2.5 py-1 text-[11px] rounded font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
-                    >
-                      Mark All Present
-                    </button>
-                    <button
-                      onClick={() => {
-                        const updated = {};
-                        currentBatch.students.forEach(s => { updated[s.email] = false; });
-                        setRollCallRoster(updated);
-                      }}
-                      className="px-2.5 py-1 text-[11px] rounded font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300"
-                    >
-                      Mark All Absent
-                    </button>
-                  </div>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {classSubjects.map((sub, i) => (
+                  <div key={sub.id} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="font-mono text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300">
+                        {sub.code || `SUB-${i+1}`}
+                      </span>
+                      <span className="text-xs text-slate-400 font-semibold">{sub.credits || 3} Credits</span>
+                    </div>
 
-                <div className="space-y-2">
-                  {currentBatch.students.map(stu => {
-                    const isPresent = rollCallRoster[stu.email] !== false;
-                    const subjectAtt = stu.attendance?.[rollCallSubject] || { attended: 0, total: 24 };
+                    <h3 className="font-bold text-base text-slate-900 dark:text-white">
+                      {sub.name}
+                    </h3>
 
-                    return (
-                      <div key={stu.email} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-850 flex items-center justify-between text-xs">
-                        <div>
-                          <div className="font-bold text-slate-800 dark:text-slate-100">{stu.name}</div>
-                          <div className="text-[11px] text-slate-400 font-mono">
-                            {stu.roll} • Current Record: {subjectAtt.attended}/{subjectAtt.total} ({Math.round((subjectAtt.attended/Math.max(1, subjectAtt.total))*100)}%)
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-2">
-                          <button
-                            onClick={() => setRollCallRoster(prev => ({ ...prev, [stu.email]: true }))}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                              isPresent 
-                                ? "bg-emerald-600 text-white shadow-sm" 
-                                : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
-                            }`}
-                          >
-                            Present
-                          </button>
-                          <button
-                            onClick={() => setRollCallRoster(prev => ({ ...prev, [stu.email]: false }))}
-                            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                              !isPresent 
-                                ? "bg-rose-600 text-white shadow-sm" 
-                                : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
-                            }`}
-                          >
-                            Absent
-                          </button>
-                        </div>
+                    <div className="pt-3 border-t border-slate-100 dark:border-slate-800 space-y-1 text-xs">
+                      <div className="text-slate-600 dark:text-slate-300">
+                        Faculty: <span className="font-bold text-slate-900 dark:text-white">{sub.facultyName || "Professor"}</span>
                       </div>
-                    );
-                  })}
-                </div>
-
-                <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-end">
-                  <button
-                    onClick={() => {
-                      setData(prev => {
-                        const updatedBatches = prev.batches.map(b => {
-                          if (b.id !== selectedBatch) return b;
-                          return {
-                            ...b,
-                            students: b.students.map(s => {
-                              const isPresent = rollCallRoster[s.email] !== false;
-                              const currentRec = s.attendance?.[rollCallSubject] || { attended: 0, total: 24 };
-                              return {
-                                ...s,
-                                attendance: {
-                                  ...s.attendance,
-                                  [rollCallSubject]: {
-                                    attended: isPresent ? currentRec.attended + 1 : currentRec.attended,
-                                    total: currentRec.total + 1
-                                  }
-                                }
-                              };
-                            })
-                          };
-                        });
-                        return { ...prev, batches: updatedBatches };
-                      });
-                      showToast("Lecture roll-call committed to student records!", "success");
-                    }}
-                    className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition"
-                  >
-                    Commit Attendance for Session
-                  </button>
-                </div>
+                      <div className="text-slate-400 font-mono text-[11px] truncate">
+                        {sub.facultyEmail}
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
 
-          {/* TAB 4: STUDENT ATTENDANCE RADAR */}
+          {/* TAB: STUDENT - 75% ATTENDANCE RADAR */}
           {activeTab === "attendance" && isStudent && (
             <div className="space-y-6 animate-fadeIn">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Attendance Debarment Radar & Safety Margin
-                  </h1>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Live monitoring against the mandatory 75% b-school policy with consecutive lecture recovery counters.
-                  </p>
-                </div>
+              <div>
+                <h1 className="text-2xl font-black text-slate-900 dark:text-white">
+                  Attendance Debarment Radar
+                </h1>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Real-time monitoring across your 9 subjects against the mandatory 75% b-school examination rule.
+                </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
-                {studentAttendanceSummary.map(item => {
-                  const isSafe = item.percentage >= 80;
-                  const isWarning = item.percentage >= 75 && item.percentage < 80;
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {studentAttendanceStats.map(item => (
+                  <div 
+                    key={item.subject.id} 
+                    className={`p-5 rounded-2xl border transition bg-white dark:bg-slate-900 ${
+                      item.isAtRisk 
+                        ? "border-rose-400 dark:border-rose-800 bg-rose-50/15" 
+                        : "border-slate-200 dark:border-slate-800"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                          {item.subject.code}
+                        </span>
+                        <h3 className="font-bold text-sm text-slate-900 dark:text-white">
+                          {item.subject.name}
+                        </h3>
+                        <div className="text-[11px] text-slate-400 mt-0.5">Faculty: {item.subject.facultyName}</div>
+                      </div>
 
-                  return (
-                    <div 
-                      key={item.subject.id} 
-                      className={`p-5 rounded-2xl border transition shadow-sm bg-white dark:bg-slate-900 ${
+                      <div className={`px-3 py-1 rounded-xl text-sm font-black ${
                         item.isAtRisk 
-                          ? "border-rose-400 dark:border-rose-800 bg-rose-50/15" 
-                          : isWarning
-                          ? "border-amber-400 dark:border-amber-800 bg-amber-50/10"
-                          : "border-slate-200 dark:border-slate-800"
-                      }`}
-                    >
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                            {item.subject.code}
+                          ? "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300"
+                          : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
+                      }`}>
+                        {item.percentage}%
+                      </div>
+                    </div>
+
+                    <div className="mt-4">
+                      <div className="flex justify-between text-xs font-semibold text-slate-500 mb-1">
+                        <span>Attended: {item.attended} / {item.conducted} lectures</span>
+                        <span>Required: 75%</span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                        <div 
+                          className={`h-full transition-all duration-500 ${
+                            item.isAtRisk ? "bg-rose-600" : "bg-emerald-500"
+                          }`} 
+                          style={{ width: `${Math.min(100, item.percentage)}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
+                      {item.isAtRisk ? (
+                        <div className="text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1.5">
+                          <Icon name="alert" className="w-4 h-4 flex-shrink-0" />
+                          <span>Debarment Risk: Must attend next {item.classesNeededToClear} lectures consecutively to reach 75%!</span>
+                        </div>
+                      ) : (
+                        <div className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
+                          <Icon name="check" className="w-4 h-4 flex-shrink-0" />
+                          <span>Safe: Above the 75% threshold.</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* TAB: STUDENT - MY CP PERFORMANCE */}
+          {activeTab === "mycp" && isStudent && (
+            <div className="space-y-6 animate-fadeIn">
+              <div>
+                <h1 className="text-2xl font-black text-slate-900 dark:text-white">
+                  My Case Participation (CP) Record
+                </h1>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                  Scores awarded by your respective subject professors during case discussions.
+                </p>
+              </div>
+
+              <div className="space-y-3">
+                {data.cpLogs.filter(l => l.studentEmail === currentUser.email).map(log => {
+                  const sub = classSubjects.find(s => s.id === log.subjectId);
+                  return (
+                    <div key={log.id} className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4 shadow-sm">
+                      <div>
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
+                            {sub?.code || "SUB"} • {sub?.name}
                           </span>
-                          <h3 className="font-extrabold text-base text-slate-900 dark:text-white">
-                            {item.subject.name}
-                          </h3>
-                          <div className="text-[11px] text-slate-400 mt-0.5">Faculty: {item.subject.fac}</div>
+                          <span className="text-xs font-extrabold text-amber-500">
+                            +{log.points} Points
+                          </span>
                         </div>
-
-                        <div className={`px-3 py-1 rounded-xl text-sm font-black ${
-                          item.isAtRisk 
-                            ? "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300"
-                            : isWarning 
-                            ? "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300"
-                            : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
-                        }`}>
-                          {item.percentage}%
-                        </div>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 font-medium">
+                          "{log.note}"
+                        </p>
                       </div>
-
-                      <div className="mt-4">
-                        <div className="flex justify-between text-xs font-semibold text-slate-500 mb-1">
-                          <span>Attended: {item.attended} / {item.total} lectures</span>
-                          <span>Required: 75%</span>
-                        </div>
-                        <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                          <div 
-                            className={`h-full transition-all duration-500 ${
-                              item.isAtRisk ? "bg-rose-600" : isWarning ? "bg-amber-500" : "bg-emerald-500"
-                            }`} 
-                            style={{ width: `${Math.min(100, item.percentage)}%` }}
-                          />
-                        </div>
-                      </div>
-
-                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
-                        {item.isAtRisk ? (
-                          <div className="text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1.5">
-                            <Icon name="alert" className="w-4 h-4 flex-shrink-0" />
-                            <span>Debarment Risk: Must attend next {item.classesNeededToClear} lectures consecutively to reach 75%!</span>
-                          </div>
-                        ) : isWarning ? (
-                          <div className="text-amber-600 dark:text-amber-400 font-semibold flex items-center gap-1.5">
-                            <Icon name="alert" className="w-4 h-4 flex-shrink-0" />
-                            <span>Caution: Low buffer. 0 absences remaining before falling below threshold.</span>
-                          </div>
-                        ) : (
-                          <div className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
-                            <Icon name="check" className="w-4 h-4 flex-shrink-0" />
-                            <span>Safe: Allowed up to {item.safeAbsencesAllowed} more absence(s) while retaining ≥75%.</span>
-                          </div>
-                        )}
-                      </div>
+                      <span className="text-[11px] text-slate-400 whitespace-nowrap">
+                        {formatDate(log.date)}
+                      </span>
                     </div>
                   );
                 })}
-              </div>
-            </div>
-          )}
 
-          {/* TAB 5: TASK CHECKLIST */}
-          {activeTab === "tasks" && (
-            <div className="space-y-6 animate-fadeIn">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Task Workspace
-                  </h1>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Manage sprint deliverables, case analysis checkpoints, and syndicate task queues.
-                  </p>
-                </div>
-                <button
-                  onClick={() => setShowTaskModal(true)}
-                  className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md shadow-blue-500/20 transition self-start sm:self-auto"
-                >
-                  <Icon name="plus" className="w-4 h-4" />
-                  <span>New Task</span>
-                </button>
-              </div>
-
-              {/* Task search and filters */}
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-3 rounded-2xl border border-slate-200 dark:border-slate-800">
-                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0">
-                  {[
-                    { id: "all", label: "All Tasks" },
-                    { id: "today", label: "Due Today" },
-                    { id: "week", label: "This Week" },
-                    { id: "overdue", label: "Overdue" },
-                    { id: "done", label: "Completed" }
-                  ].map(tab => (
-                    <button
-                      key={tab.id}
-                      onClick={() => setTaskFilter(tab.id)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition ${
-                        taskFilter === tab.id
-                          ? "bg-blue-600 text-white shadow-sm"
-                          : "text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
-                      }`}
-                    >
-                      {tab.label}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="relative min-w-[240px]">
-                  <Icon name="search" className="w-4 h-4 absolute left-3 top-2.5 text-slate-400" />
-                  <input
-                    type="text"
-                    placeholder="Search by title or topic..."
-                    value={taskSearch}
-                    onChange={(e) => setTaskSearch(e.target.value)}
-                    className="w-full pl-9 pr-3 py-1.5 rounded-xl text-xs bg-slate-100 dark:bg-slate-800 border border-transparent focus:border-blue-500 focus:outline-none"
-                  />
-                </div>
-              </div>
-
-              {/* Task list items */}
-              <div className="space-y-3">
-                {userTasks
-                  .filter(task => {
-                    const now = new Date();
-                    const eod = new Date(now);
-                    eod.setHours(23, 59, 59, 999);
-                    const inSevenDays = new Date(now.getTime() + 7 * 86400 * 1000);
-
-                    if (taskFilter === "today") return !task.done && task.due && new Date(task.due) <= eod;
-                    if (taskFilter === "week") return !task.done && task.due && new Date(task.due) <= inSevenDays;
-                    if (taskFilter === "overdue") return isOverdue(task.due, task.done);
-                    if (taskFilter === "done") return task.done;
-                    return true;
-                  })
-                  .filter(task => {
-                    if (!taskSearch) return true;
-                    return (task.title + " " + task.topic).toLowerCase().includes(taskSearch.toLowerCase());
-                  })
-                  .map(task => {
-                    const late = isOverdue(task.due, task.done);
-                    const team = data.teams.find(t => t.id === task.teamId);
-
-                    return (
-                      <div
-                        key={task.id}
-                        className={`p-4 rounded-2xl border transition bg-white dark:bg-slate-900 ${
-                          task.done 
-                            ? "opacity-60 border-slate-200 dark:border-slate-800" 
-                            : late 
-                            ? "border-rose-300 dark:border-rose-900 bg-rose-50/20" 
-                            : "border-slate-200 dark:border-slate-800 hover:shadow-sm"
-                        } flex items-start gap-4`}
-                      >
-                        <input
-                          type="checkbox"
-                          checked={task.done}
-                          onChange={() => {
-                            setData(prev => ({
-                              ...prev,
-                              tasks: prev.tasks.map(t => 
-                                t.id === task.id 
-                                  ? { ...t, done: !t.done, doneBy: !t.done ? user.name : null }
-                                  : t
-                              )
-                            }));
-                          }}
-                          className="mt-1 w-5 h-5 rounded text-blue-600 focus:ring-blue-500 cursor-pointer accent-blue-600"
-                        />
-
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className={`font-bold text-sm ${task.done ? "line-through text-slate-400" : "text-slate-900 dark:text-slate-100"}`}>
-                              {task.title}
-                            </span>
-                            {late && !task.done && (
-                              <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300">
-                                Overdue
-                              </span>
-                            )}
-                          </div>
-
-                          <div className="flex flex-wrap items-center gap-3 mt-2 text-xs text-slate-500 dark:text-slate-400">
-                            <span className="inline-flex items-center gap-1 font-semibold text-slate-700 dark:text-slate-300">
-                              {team ? `👥 ${team.name}` : "👤 Personal"}
-                            </span>
-                            <span>•</span>
-                            <span className="bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded text-[11px]">
-                              {task.topic}
-                            </span>
-                            <span>•</span>
-                            <span>Due: {formatDate(task.due)}</span>
-                            {task.done && task.doneBy && (
-                              <>
-                                <span>•</span>
-                                <span className="text-emerald-600 dark:text-emerald-400 font-medium">
-                                  ✓ Completed by {task.doneBy}
-                                </span>
-                              </>
-                            )}
-                          </div>
-                        </div>
-
-                        <div className="flex items-center gap-2">
-                          <span className={`text-[10px] font-bold px-2 py-1 rounded uppercase ${
-                            task.priority === 'High' 
-                              ? 'bg-rose-100 text-rose-700 dark:bg-rose-900/40 dark:text-rose-300' 
-                              : task.priority === 'Medium'
-                              ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300'
-                              : 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300'
-                          }`}>
-                            {task.priority}
-                          </span>
-                          <button
-                            onClick={() => {
-                              setData(prev => ({
-                                ...prev,
-                                tasks: prev.tasks.filter(t => t.id !== task.id)
-                              }));
-                              showToast("Task removed.", "info");
-                            }}
-                            className="p-1 text-slate-400 hover:text-rose-500 rounded transition"
-                          >
-                            <Icon name="x" className="w-4 h-4" />
-                          </button>
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                {userTasks.length === 0 && (
-                  <div className="text-center py-12 bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 text-xs text-slate-400">
-                    No tasks found. Add a checkpoint above.
+                {data.cpLogs.filter(l => l.studentEmail === currentUser.email).length === 0 && (
+                  <div className="p-8 text-center bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 text-xs text-slate-400">
+                    No CP points awarded yet. Participate actively in case lectures!
                   </div>
                 )}
               </div>
@@ -1533,436 +1317,155 @@ export default function App() {
                     Case Studies & Assignments
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    {isFaculty ? "Evaluate student case submissions, configure rubrics, and publish class grades." : "Submit case analyses, track grades, and view faculty rubric breakdowns."}
+                    {isFaculty ? "Post case studies for any of the 9 subjects and grade submissions." : "Submit case analyses and view scores from your respective professors."}
                   </p>
                 </div>
-                <div className="flex items-center gap-2">
-                  {isFaculty && (
-                    <>
-                      <button
-                        onClick={() => setShowCourseModal(true)}
-                        className="px-3 py-2 rounded-xl border border-slate-300 dark:border-slate-700 font-semibold text-xs hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-                      >
-                        + Course
-                      </button>
-                      <button
-                        onClick={() => setShowAsgModal(true)}
-                        className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md shadow-blue-500/20 transition"
-                      >
-                        <Icon name="plus" className="w-4 h-4" />
-                        <span>Post Assignment</span>
-                      </button>
-                    </>
-                  )}
-                </div>
+                {isFaculty && currentClass && (
+                  <button
+                    onClick={() => setShowAsgModal(true)}
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition"
+                  >
+                    <Icon name="plus" className="w-4 h-4" />
+                    <span>Post Assignment</span>
+                  </button>
+                )}
               </div>
 
-              {/* Assignment list cards */}
-              <div className="space-y-4">
-                {data.assignments.map(asg => {
-                  const subject = data.subjects.find(s => s.id === asg.subjectId);
-                  const submissions = data.submissions.filter(s => s.asgId === asg.id);
-                  const studentSub = submissions.find(s => s.studentEmail === user.email);
-                  const gradedSubs = submissions.filter(s => s.marks !== null);
-                  const avgScore = gradedSubs.length 
-                    ? (gradedSubs.reduce((acc, curr) => acc + curr.marks, 0) / gradedSubs.length).toFixed(1)
-                    : null;
+              {classAssignments.length === 0 ? (
+                <div className="p-8 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-xs text-slate-400">
+                  No assignments posted for this class yet.
+                </div>
+              ) : (
+                <div className="space-y-4">
+                  {classAssignments.map(asg => {
+                    const subject = classSubjects.find(s => s.id === asg.subjectId);
+                    const submissions = data.submissions.filter(s => s.asgId === asg.id);
+                    const mySub = submissions.find(s => s.studentEmail === currentUser.email);
 
-                  return (
-                    <div key={asg.id} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-                      <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
-                        <div>
-                          <div className="flex items-center gap-2">
+                    return (
+                      <div key={asg.id} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
+                          <div>
                             <span className="text-xs font-bold px-2 py-0.5 rounded bg-blue-50 dark:bg-blue-950 text-blue-700 dark:text-blue-300 border border-blue-200 dark:border-blue-900">
                               {subject?.code} • {subject?.name}
                             </span>
-                            <span className="text-xs text-slate-400">
-                              Max: {asg.maxMarks} marks
-                            </span>
+                            <h3 className="text-lg font-bold text-slate-900 dark:text-white mt-1">
+                              {asg.title}
+                            </h3>
                           </div>
-                          <h3 className="text-lg font-bold text-slate-900 dark:text-slate-100 mt-1">
-                            {asg.title}
-                          </h3>
-                        </div>
-
-                        <div className="text-right text-xs">
-                          <div className="text-slate-500">
-                            Due: {formatDate(asg.due)}
-                          </div>
-                          <div className="text-[11px] text-slate-400 mt-0.5">
-                            Posted by: {asg.postedBy}
+                          <div className="text-right text-xs text-slate-400">
+                            Due: {formatDate(asg.due)} • Max {asg.maxMarks} marks
                           </div>
                         </div>
-                      </div>
 
-                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed bg-slate-50 dark:bg-slate-850 p-3 rounded-xl border border-slate-100 dark:border-slate-800">
-                        {asg.desc}
-                      </p>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 p-3 rounded-xl bg-slate-50 dark:bg-slate-850">
+                          {asg.desc}
+                        </p>
 
-                      {/* FACULTY VIEW: Rubric Grading Table */}
-                      {isFaculty ? (
-                        <div className="pt-2 border-t border-slate-200 dark:border-slate-800 space-y-3">
-                          <div className="flex items-center justify-between text-xs font-bold text-slate-700 dark:text-slate-300">
-                            <span>Cohort Submissions ({submissions.length})</span>
-                            <div className="flex items-center gap-3 text-slate-500 font-medium">
-                              {avgScore && <span>Class Avg: <b className="text-blue-600 dark:text-blue-400">{avgScore}</b>/{asg.maxMarks}</span>}
-                              <span>{gradedSubs.length} of {submissions.length} graded</span>
+                        {/* Faculty Submissions Inspector */}
+                        {isFaculty ? (
+                          <div className="pt-2 border-t border-slate-200 dark:border-slate-800 space-y-2">
+                            <div className="flex justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
+                              <span>Student Submissions ({submissions.length})</span>
                             </div>
-                          </div>
-
-                          <div className="space-y-2">
-                            {submissions.map(sub => {
-                              return (
-                                <div key={sub.id} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/80 dark:border-slate-700 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs">
-                                  <div>
-                                    <div className="font-bold text-slate-900 dark:text-slate-100">
-                                      {sub.studentName}
-                                    </div>
-                                    <div className="text-slate-500 truncate max-w-sm mt-0.5">
-                                      {sub.content}
-                                    </div>
-                                    {sub.feedback && (
-                                      <div className="text-[11px] text-indigo-600 dark:text-indigo-400 mt-1 italic">
-                                        "{sub.feedback}"
-                                      </div>
-                                    )}
-                                  </div>
-
-                                  <div className="flex items-center gap-3">
-                                    <div className="text-right">
-                                      {sub.marks !== null ? (
-                                        <span className="font-bold text-emerald-600 dark:text-emerald-400">
-                                          {sub.marks} / {asg.maxMarks} marks
-                                        </span>
-                                      ) : (
-                                        <span className="text-amber-500 font-medium">Pending Grade</span>
-                                      )}
-                                    </div>
-                                    <button
-                                      onClick={() => setShowGradeModal({ ...sub, maxMarks: asg.maxMarks, asgTitle: asg.title, weights: asg.rubricWeights })}
-                                      className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition"
-                                    >
-                                      {sub.marks !== null ? "Edit Grade" : "Grade & Rubric"}
-                                    </button>
-                                  </div>
+                            {submissions.map(sub => (
+                              <div key={sub.id} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 flex items-center justify-between text-xs">
+                                <div>
+                                  <div className="font-bold">{sub.studentName}</div>
+                                  <div className="text-[11px] text-slate-400 font-mono truncate max-w-xs">{sub.content}</div>
                                 </div>
-                              );
-                            })}
-
+                                <div className="flex items-center gap-3">
+                                  <span className="font-extrabold text-blue-600">
+                                    {sub.marks !== null ? `${sub.marks}/${asg.maxMarks}` : "Pending"}
+                                  </span>
+                                  <button
+                                    onClick={() => setShowGradeModal({ ...sub, maxMarks: asg.maxMarks, asgTitle: asg.title })}
+                                    className="px-3 py-1 bg-blue-600 text-white rounded-lg text-xs font-bold hover:bg-blue-700"
+                                  >
+                                    Grade
+                                  </button>
+                                </div>
+                              </div>
+                            ))}
                             {submissions.length === 0 && (
-                              <p className="text-xs text-slate-400 italic py-2">
-                                No submissions received yet for this case study.
-                              </p>
+                              <p className="text-xs text-slate-400 italic">No student submissions yet.</p>
                             )}
                           </div>
-                        </div>
-                      ) : (
-                        /* STUDENT VIEW: My Submission */
-                        <div className="pt-2 border-t border-slate-200 dark:border-slate-800 space-y-3">
-                          {studentSub ? (
-                            <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2">
-                              <div className="flex items-center justify-between text-xs">
-                                <span className="font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
-                                  <Icon name="check" className="w-4 h-4" /> Submitted on {formatDate(studentSub.submittedAt)}
-                                </span>
-                                {studentSub.marks !== null ? (
-                                  <span className="text-sm font-extrabold text-blue-600 dark:text-blue-400">
-                                    Score: {studentSub.marks} / {asg.maxMarks}
-                                  </span>
-                                ) : (
-                                  <span className="text-amber-500 text-xs font-semibold">Under Evaluation</span>
+                        ) : (
+                          /* Student Submission View */
+                          <div className="pt-2 border-t border-slate-200 dark:border-slate-800">
+                            {mySub ? (
+                              <div className="p-3 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs space-y-1">
+                                <span className="font-bold text-emerald-700 dark:text-emerald-300">✓ Submitted on {formatDate(mySub.submittedAt)}</span>
+                                <div className="font-mono text-[11px] truncate text-slate-600 dark:text-slate-300">{mySub.content}</div>
+                                {mySub.marks !== null && (
+                                  <div className="font-bold text-blue-600 mt-1">Score: {mySub.marks} / {asg.maxMarks}</div>
+                                )}
+                                {mySub.feedback && (
+                                  <div className="italic text-slate-500 mt-1">Faculty remarks: "{mySub.feedback}"</div>
                                 )}
                               </div>
+                            ) : (
+                              <form 
+                                onSubmit={(e) => {
+                                  e.preventDefault();
+                                  const text = e.target.elements.subVal.value.trim();
+                                  if (!text) return;
 
-                              <div className="text-xs text-slate-600 dark:text-slate-300 font-mono bg-white dark:bg-slate-900 p-2 rounded border border-slate-200 dark:border-slate-800 truncate">
-                                {studentSub.content}
-                              </div>
+                                  const newSub = {
+                                    id: `sub-${Date.now()}`,
+                                    asgId: asg.id,
+                                    studentEmail: currentUser.email,
+                                    studentName: currentUser.name,
+                                    content: text,
+                                    submittedAt: new Date().toISOString(),
+                                    marks: null,
+                                    feedback: ""
+                                  };
 
-                              {studentSub.rubric && (studentSub.rubric.analysis || studentSub.rubric.framework || studentSub.rubric.recommendations) && (
-                                <div className="grid grid-cols-3 gap-2 p-2 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-[11px]">
-                                  <div>Analysis Depth: <b className="text-blue-600">{studentSub.rubric.analysis ?? "-"}</b></div>
-                                  <div>Framework Rigor: <b className="text-blue-600">{studentSub.rubric.framework ?? "-"}</b></div>
-                                  <div>Recommendations: <b className="text-blue-600">{studentSub.rubric.recommendations ?? "-"}</b></div>
-                                </div>
-                              )}
-
-                              {studentSub.feedback && (
-                                <div className="p-2.5 rounded bg-blue-50 dark:bg-blue-950/60 border border-blue-200 dark:border-blue-900 text-xs text-blue-900 dark:text-blue-200">
-                                  <span className="font-bold">Faculty Remarks:</span> {studentSub.feedback}
-                                </div>
-                              )}
-                            </div>
-                          ) : (
-                            <form 
-                              onSubmit={(e) => {
-                                e.preventDefault();
-                                const val = e.target.elements.subContent.value.trim();
-                                if (!val) return;
-                                
-                                const newSub = {
-                                  id: `sub-${Date.now()}`,
-                                  asgId: asg.id,
-                                  studentName: user.name,
-                                  studentEmail: user.email,
-                                  content: val,
-                                  submittedAt: new Date().toISOString(),
-                                  marks: null,
-                                  rubric: {},
-                                  feedback: ""
-                                };
-
-                                setData(prev => ({
-                                  ...prev,
-                                  submissions: [...prev.submissions, newSub]
-                                }));
-                                showToast("Case assignment submitted successfully!", "success");
-                                e.target.reset();
-                              }}
-                              className="space-y-2"
-                            >
-                              <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 block">
-                                Submit Work (Paste summary memo or Cloud Drive deck link):
-                              </label>
-                              <div className="flex gap-2">
+                                  setData(prev => ({ ...prev, submissions: [...prev.submissions, newSub] }));
+                                  showToast("Case assignment submitted!", "success");
+                                  e.target.reset();
+                                }}
+                                className="flex gap-2"
+                              >
                                 <input
-                                  name="subContent"
-                                  type="text"
-                                  placeholder="e.g. https://drive.google.com/file/d/... or executive summary"
+                                  name="subVal"
+                                  placeholder="Paste Drive link or executive summary..."
                                   required
-                                  className="flex-1 px-3 py-2 rounded-xl text-xs bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:outline-none focus:border-blue-500"
+                                  className="flex-1 px-3 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"
                                 />
-                                <button
-                                  type="submit"
-                                  className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs transition"
-                                >
+                                <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-xl text-xs font-bold">
                                   Submit
                                 </button>
-                              </div>
-                            </form>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* TAB 7: SYNDICATE TEAMS */}
-          {activeTab === "teams" && (
-            <div className="space-y-6 animate-fadeIn">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Syndicate Teams & Cohort Groups
-                  </h1>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Group assignments, sprint velocity, and peer deliverable distribution.
-                  </p>
+                              </form>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
-                {isLeader && (
-                  <button
-                    onClick={() => setShowTeamModal(true)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md shadow-blue-500/20 transition self-start sm:self-auto"
-                  >
-                    <Icon name="plus" className="w-4 h-4" />
-                    <span>Create Team</span>
-                  </button>
-                )}
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {userTeams.map(team => {
-                  const teamTasks = data.tasks.filter(t => t.teamId === team.id);
-                  const completedTasks = teamTasks.filter(t => t.done);
-                  const progressPct = teamTasks.length ? Math.round((completedTasks.length / teamTasks.length) * 100) : 0;
-
-                  const memberStats = {};
-                  completedTasks.forEach(t => {
-                    if (t.doneBy) memberStats[t.doneBy] = (memberStats[t.doneBy] || 0) + 1;
-                  });
-
-                  return (
-                    <div key={team.id} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-4">
-                      <div className="flex items-start justify-between">
-                        <div>
-                          <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
-                            Syndicate Group
-                          </span>
-                          <h3 className="font-black text-lg text-slate-900 dark:text-slate-100">
-                            {team.name}
-                          </h3>
-                        </div>
-                        <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
-                          {team.members.length} / {data.limits.members} members
-                        </span>
-                      </div>
-
-                      <div>
-                        <div className="flex justify-between text-xs font-medium text-slate-500 mb-1">
-                          <span>Team Sprint Completion</span>
-                          <span className="font-bold text-slate-800 dark:text-slate-200">{progressPct}% ({completedTasks.length}/{teamTasks.length} tasks)</span>
-                        </div>
-                        <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                          <div 
-                            className="h-full bg-blue-600 transition-all duration-500" 
-                            style={{ width: `${progressPct}%` }}
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-wider block mb-2">
-                          Members & Completed Deliverables
-                        </span>
-                        <div className="flex flex-wrap gap-2">
-                          {team.members.map(member => (
-                            <span 
-                              key={member}
-                              className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-xs font-semibold bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200"
-                            >
-                              <span>{member}</span>
-                              {team.leader === member && (
-                                <span className="text-[10px] text-amber-500" title="Team Leader">👑</span>
-                              )}
-                              {memberStats[member] && (
-                                <span className="text-[10px] px-1 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold">
-                                  ✓{memberStats[member]}
-                                </span>
-                              )}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-
-                      {(isAdmin || (user.name === team.leader)) && (
-                        <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex gap-2">
-                          <input
-                            id={`add-mem-${team.id}`}
-                            type="text"
-                            placeholder="Add member name..."
-                            className="flex-1 px-3 py-1.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 focus:outline-none"
-                          />
-                          <button
-                            onClick={() => {
-                              const input = document.getElementById(`add-mem-${team.id}`);
-                              const name = input?.value.trim();
-                              if (!name) return;
-
-                              if (team.members.length >= data.limits.members) {
-                                showToast(`Team reached limit of ${data.limits.members} members!`, "error");
-                                return;
-                              }
-
-                              setData(prev => ({
-                                ...prev,
-                                teams: prev.teams.map(t => 
-                                  t.id === team.id 
-                                    ? { ...t, members: [...new Set([...t.members, name])] }
-                                    : t
-                                )
-                              }));
-                              input.value = "";
-                              showToast(`Added ${name} to ${team.name}`, "success");
-                            }}
-                            className="px-3 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 text-xs font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition"
-                          >
-                            + Add Member
-                          </button>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
+              )}
             </div>
           )}
 
-          {/* TAB 8: CALENDAR */}
-          {activeTab === "cal" && (
-            <div className="space-y-6 animate-fadeIn">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Academic Calendar & Milestones
-                  </h1>
-                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Trimester deadlines, guest lectures, industry seminars, and review sessions.
-                  </p>
-                </div>
-                {isFaculty && (
-                  <button
-                    onClick={() => setShowEventModal(true)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md shadow-blue-500/20 transition self-start sm:self-auto"
-                  >
-                    <Icon name="plus" className="w-4 h-4" />
-                    <span>Schedule Event</span>
-                  </button>
-                )}
-              </div>
-
-              <div className="space-y-3">
-                {data.events.map(ev => (
-                  <div key={ev.id} className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4 shadow-sm">
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 uppercase tracking-wider">
-                        {ev.category}
-                      </span>
-                      <h3 className="font-extrabold text-sm text-slate-900 dark:text-slate-100">
-                        {ev.title}
-                      </h3>
-                      <div className="text-xs text-slate-500">
-                        📍 {ev.where} {ev.speaker && `• 🎙️ Speaker: ${ev.speaker}`}
-                      </div>
-                    </div>
-                    <div className="text-right flex-shrink-0">
-                      <div className="text-xs font-bold text-blue-600 dark:text-blue-400">
-                        {formatDate(ev.at)}
-                      </div>
-                    </div>
-                  </div>
-                ))}
-
-                {/* Assignment Deadlines */}
-                {data.assignments.map(asg => (
-                  <div key={asg.id} className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/40 border border-dashed border-slate-300 dark:border-slate-700 flex items-start justify-between gap-4">
-                    <div className="space-y-1">
-                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 uppercase tracking-wider">
-                        Case Submission Deadline
-                      </span>
-                      <h3 className="font-bold text-sm text-slate-800 dark:text-slate-200">
-                        {asg.title}
-                      </h3>
-                      <div className="text-xs text-slate-400">
-                        Evaluated by {asg.postedBy}
-                      </div>
-                    </div>
-                    <div className="text-right flex-shrink-0 text-xs font-bold text-indigo-600 dark:text-indigo-400">
-                      {formatDate(asg.due)}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* TAB 9: NOTICE BOARD */}
+          {/* TAB 7: CIRCULARS & NOTICES */}
           {activeTab === "notices" && (
             <div className="space-y-6 animate-fadeIn">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Institutional Circulars & Notices
+                    Class Circulars & Notices
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Official memos from the MBA Program Office, Placement Cell, and Faculty.
+                    Official memos posted for {currentClass?.name || "your cohort"}.
                   </p>
                 </div>
                 {isFaculty && (
                   <button
                     onClick={() => setShowNoticeModal(true)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md shadow-blue-500/20 transition self-start sm:self-auto"
+                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition"
                   >
                     <Icon name="plus" className="w-4 h-4" />
                     <span>Publish Notice</span>
@@ -1970,112 +1473,84 @@ export default function App() {
                 )}
               </div>
 
-              <div className="space-y-4">
-                {data.notices.map(n => (
-                  <div key={n.id} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+              <div className="space-y-3">
+                {classNotices.map(n => (
+                  <div key={n.id} className="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-2">
                     <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        {n.pinned && (
-                          <span className="p-1 rounded bg-amber-100 dark:bg-amber-950 text-amber-600 dark:text-amber-400">
-                            <Icon name="pin" className="w-3.5 h-3.5" />
-                          </span>
-                        )}
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 uppercase tracking-wider">
-                          {n.category}
-                        </span>
-                      </div>
-                      <span className="text-xs text-slate-400">{formatDate(n.postedAt)}</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 uppercase tracking-wider">
+                        {n.category || "Academic"}
+                      </span>
+                      <span className="text-xs text-slate-400">{formatDate(n.date)}</span>
                     </div>
-
-                    <div>
-                      <h3 className="text-base font-bold text-slate-900 dark:text-slate-100">
-                        {n.title}
-                      </h3>
-                      <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mt-1">
-                        {n.msg}
-                      </p>
-                    </div>
-
-                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-[11px] text-slate-400">
-                      Author: <span className="font-semibold text-slate-600 dark:text-slate-300">{n.author}</span>
+                    <h3 className="font-bold text-base text-slate-900 dark:text-white">{n.title}</h3>
+                    <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{n.msg}</p>
+                    <div className="text-[11px] text-slate-400 pt-2 border-t border-slate-100 dark:border-slate-800">
+                      Author: <span className="font-semibold">{n.author}</span>
                     </div>
                   </div>
                 ))}
+
+                {classNotices.length === 0 && (
+                  <div className="p-8 text-center bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 text-xs text-slate-400">
+                    No notices posted yet for this class.
+                  </div>
+                )}
               </div>
             </div>
           )}
 
-          {/* TAB 10: COHORT ROSTER */}
-          {activeTab === "batch" && (
+          {/* TAB 8: STUDENT TASKS */}
+          {activeTab === "tasks" && isStudent && (
             <div className="space-y-6 animate-fadeIn">
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center justify-between">
                 <div>
                   <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    {currentBatch.name} Directory
+                    Personal Task Checklist
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    {currentBatch.degree} • {currentBatch.students.length} Registered Candidates
+                    Manage your own study deadlines, case preparations, and group sprint work.
                   </p>
                 </div>
-                {isAdmin && (
-                  <button
-                    onClick={() => setShowImportModal(true)}
-                    className="flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs shadow-md shadow-blue-500/20 transition self-start sm:self-auto"
-                  >
-                    <Icon name="plus" className="w-4 h-4" />
-                    <span>Import Student Roster</span>
-                  </button>
-                )}
+                <button
+                  onClick={() => setShowTaskModal(true)}
+                  className="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition"
+                >
+                  + Add Task
+                </button>
               </div>
 
-              <div className="relative">
-                <Icon name="search" className="w-4 h-4 absolute left-3.5 top-3 text-slate-400" />
-                <input
-                  type="text"
-                  placeholder="Search students by name, roll number, or specialization..."
-                  value={rosterSearch}
-                  onChange={(e) => setRosterSearch(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs focus:outline-none focus:border-blue-500 shadow-sm"
-                />
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {currentBatch.students
-                  .filter(s => {
-                    if (!rosterSearch) return true;
-                    return (s.name + " " + s.roll + " " + s.spec).toLowerCase().includes(rosterSearch.toLowerCase());
-                  })
-                  .map(s => {
-                    const studentTeams = data.teams.filter(t => t.members.includes(s.name));
-                    return (
-                      <div key={s.email} className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-                        <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-extrabold flex items-center justify-center text-sm">
-                            {s.name.split(" ").map(w => w[0]).join("")}
-                          </div>
-                          <div>
-                            <h4 className="font-bold text-sm text-slate-900 dark:text-slate-100">{s.name}</h4>
-                            <div className="text-[11px] font-mono text-slate-400">{s.roll}</div>
-                          </div>
-                        </div>
-
-                        <div className="space-y-1 text-xs">
-                          <div className="text-slate-500">
-                            Spec: <span className="font-semibold text-slate-700 dark:text-slate-300">{s.spec}</span>
-                          </div>
-                          <div className="text-slate-500 truncate">
-                            Email: <span className="font-mono text-[11px] text-blue-600 dark:text-blue-400">{s.email}</span>
-                          </div>
-                        </div>
-
-                        <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px]">
-                          <span className="text-slate-400">
-                            Teams: {studentTeams.map(t => t.name).join(", ") || "None"}
-                          </span>
-                        </div>
-                      </div>
-                    );
-                  })}
+              <div className="space-y-2">
+                {data.tasks.filter(t => t.studentEmail === currentUser.email).map(task => (
+                  <div key={task.id} className="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
+                    <div className="flex items-center gap-3">
+                      <input
+                        type="checkbox"
+                        checked={task.done}
+                        onChange={() => {
+                          setData(prev => ({
+                            ...prev,
+                            tasks: prev.tasks.map(t => t.id === task.id ? { ...t, done: !t.done } : t)
+                          }));
+                        }}
+                        className="w-4 h-4 rounded text-blue-600 accent-blue-600 cursor-pointer"
+                      />
+                      <span className={`font-semibold ${task.done ? "line-through text-slate-400" : ""}`}>
+                        {task.title} ({task.topic})
+                      </span>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setData(prev => ({
+                          ...prev,
+                          tasks: prev.tasks.filter(t => t.id !== task.id)
+                        }));
+                      }}
+                      className="text-slate-400 hover:text-rose-500"
+                    >
+                      <Icon name="x" className="w-4 h-4" />
+                    </button>
+                  </div>
+                ))}
               </div>
             </div>
           )}
@@ -2083,16 +1558,282 @@ export default function App() {
         </main>
       </div>
 
-      {/* MODAL: LOG CP (FACULTY) */}
-      {showLogCpModal && (
+      {/* MODAL 1: CREATE CLASS (FACULTY ONLY) */}
+      {showClassModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white flex items-center gap-2">
-                <Icon name="star" className="w-5 h-5 text-amber-400" />
-                <span>Log Case Participation</span>
-              </h3>
-              <button onClick={() => setShowLogCpModal(false)} className="text-slate-400 hover:text-slate-600">
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">Create New Class / Section</h3>
+              <button onClick={() => setShowClassModal(false)} className="text-slate-400 hover:text-slate-600">
+                <Icon name="x" className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target;
+                const name = form.className.value.trim();
+                const section = form.section.value.trim();
+                const year = form.academicYear.value.trim();
+
+                const newClass = {
+                  id: `class-${Date.now()}`,
+                  name,
+                  section,
+                  academicYear: year
+                };
+
+                setData(prev => ({ ...prev, classes: [...prev.classes, newClass] }));
+                setSelectedClassId(newClass.id);
+                showToast(`Class ${name} created!`, "success");
+                setShowClassModal(false);
+              }}
+              className="space-y-3 text-xs"
+            >
+              <div>
+                <label className="font-semibold block mb-1">Class / Batch Name:</label>
+                <input name="className" required placeholder="e.g. MBA Full Time 2025-27" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="font-semibold block mb-1">Section:</label>
+                  <input name="section" defaultValue="Section A" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+                <div>
+                  <label className="font-semibold block mb-1">Academic Year:</label>
+                  <input name="academicYear" defaultValue="2025-27" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+              </div>
+              <div className="pt-2 flex justify-end gap-2">
+                <button type="button" onClick={() => setShowClassModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
+                  Cancel
+                </button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
+                  Create Class
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 2: ADD SUBJECT & ASSIGN FACULTY (FACULTY ONLY) */}
+      {showSubjectModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white">Add Subject & Faculty</h3>
+                <div className="text-xs text-slate-400">Target Class: {currentClass?.name} ({currentClass?.section})</div>
+              </div>
+              <button onClick={() => setShowSubjectModal(false)} className="text-slate-400 hover:text-slate-600">
+                <Icon name="x" className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target;
+                const newSub = {
+                  id: `sub-${Date.now()}`,
+                  classId: effectiveClassId,
+                  code: form.code.value.trim().toUpperCase(),
+                  name: form.name.value.trim(),
+                  facultyName: form.facName.value.trim(),
+                  facultyEmail: form.facEmail.value.trim().toLowerCase(),
+                  credits: Number(form.credits.value) || 3,
+                  totalClasses: Number(form.totalClasses.value) || 24
+                };
+
+                setData(prev => ({ ...prev, subjects: [...prev.subjects, newSub] }));
+                showToast(`Subject ${newSub.code} added and mapped to ${newSub.facultyName}!`, "success");
+                setShowSubjectModal(false);
+              }}
+              className="space-y-3 text-xs"
+            >
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="font-semibold block mb-1">Subject Code:</label>
+                  <input name="code" required placeholder="e.g. MKT601" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+                <div>
+                  <label className="font-semibold block mb-1">Credits:</label>
+                  <input name="credits" type="number" defaultValue="3" min="1" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+              </div>
+
+              <div>
+                <label className="font-semibold block mb-1">Subject Name:</label>
+                <input name="name" required placeholder="e.g. Marketing Management" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="font-semibold block mb-1">Assigned Faculty Name:</label>
+                  <input name="facName" required placeholder="e.g. Dr. R. Ramanathan" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+                <div>
+                  <label className="font-semibold block mb-1">Faculty Email:</label>
+                  <input name="facEmail" type="email" required placeholder="ramanathan@psgim.ac.in" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+              </div>
+
+              <div>
+                <label className="font-semibold block mb-1">Planned Lecture Count:</label>
+                <input name="totalClasses" type="number" defaultValue="24" min="1" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+              </div>
+
+              <div className="pt-2 flex justify-end gap-2">
+                <button type="button" onClick={() => setShowSubjectModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
+                  Cancel
+                </button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
+                  Save Subject
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 3: ENROLL STUDENT (FACULTY ONLY) */}
+      {showStudentModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">Enroll Student</h3>
+              <button onClick={() => setShowStudentModal(false)} className="text-slate-400 hover:text-slate-600">
+                <Icon name="x" className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target;
+                const newStudent = {
+                  id: `stu-${Date.now()}`,
+                  name: form.stuName.value.trim(),
+                  email: form.stuEmail.value.trim().toLowerCase(),
+                  roll: form.stuRoll.value.trim().toUpperCase(),
+                  classId: effectiveClassId
+                };
+
+                setData(prev => ({ ...prev, students: [...prev.students, newStudent] }));
+                showToast(`Enrolled ${newStudent.name} in ${currentClass?.name}!`, "success");
+                setShowStudentModal(false);
+              }}
+              className="space-y-3 text-xs"
+            >
+              <div>
+                <label className="font-semibold block mb-1">Student Full Name:</label>
+                <input name="stuName" required placeholder="e.g. Aarav Sharma" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="font-semibold block mb-1">Roll Number:</label>
+                  <input name="stuRoll" required placeholder="e.g. 25MBA001" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+                <div>
+                  <label className="font-semibold block mb-1">Student Email:</label>
+                  <input name="stuEmail" type="email" required placeholder="aarav.s25@psgim.ac.in" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+              </div>
+              <div className="pt-2 flex justify-end gap-2">
+                <button type="button" onClick={() => setShowStudentModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
+                  Cancel
+                </button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
+                  Enroll Student
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 4: BULK CSV IMPORT (FACULTY ONLY) */}
+      {showCsvStudentModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">Bulk Enroll Students (CSV)</h3>
+              <button onClick={() => setShowCsvStudentModal(false)} className="text-slate-400 hover:text-slate-600">
+                <Icon name="x" className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const text = e.target.csvText.value.trim();
+                if (!text) return;
+
+                const lines = text.split("\n");
+                const newStudents = [];
+
+                lines.forEach((line, idx) => {
+                  const parts = line.split(",").map(p => p.trim());
+                  if (parts.length >= 2) {
+                    newStudents.push({
+                      id: `stu-${Date.now()}-${idx}`,
+                      name: parts[0],
+                      email: parts[1].toLowerCase(),
+                      roll: parts[2] || `25MBA${100 + idx}`,
+                      classId: effectiveClassId
+                    });
+                  }
+                });
+
+                if (newStudents.length === 0) {
+                  showToast("No valid rows found. Use: Name, Email, Roll", "error");
+                  return;
+                }
+
+                setData(prev => ({
+                  ...prev,
+                  students: [...prev.students, ...newStudents]
+                }));
+
+                showToast(`Enrolled ${newStudents.length} candidates in ${currentClass?.name}!`, "success");
+                setShowCsvStudentModal(false);
+              }}
+              className="space-y-3 text-xs"
+            >
+              <div>
+                <label className="font-semibold block mb-1">
+                  Paste rows (Format: Name, Email, Roll):
+                </label>
+                <textarea
+                  name="csvText"
+                  rows="5"
+                  required
+                  placeholder="Aarav Sharma, aarav.s25@psgim.ac.in, 25MBA001&#10;Priya Nair, priya.n25@psgim.ac.in, 25MBA002"
+                  className="w-full font-mono text-[11px] px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"
+                ></textarea>
+              </div>
+              <div className="pt-2 flex justify-end gap-2">
+                <button type="button" onClick={() => setShowCsvStudentModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
+                  Cancel
+                </button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
+                  Import Students
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 5: LOG CP SCORE (FACULTY ONLY) */}
+      {showCpModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">Award Case Participation</h3>
+              <button onClick={() => setShowCpModal(false)} className="text-slate-400 hover:text-slate-600">
                 <Icon name="x" className="w-5 h-5" />
               </button>
             </div>
@@ -2102,41 +1843,41 @@ export default function App() {
                 e.preventDefault();
                 const form = e.target;
                 const studentEmail = form.student.value;
-                const studentObj = currentBatch.students.find(s => s.email === studentEmail);
+                const studentObj = classStudents.find(s => s.email === studentEmail);
                 const points = Number(form.points.value);
-                const category = form.category.value;
-                const note = form.note.value.trim();
 
                 const newLog = {
                   id: `cp-${Date.now()}`,
+                  classId: effectiveClassId,
+                  subjectId: form.subject.value,
                   studentEmail,
                   studentName: studentObj?.name || "Student",
-                  subjectId: form.subject.value,
+                  facultyEmail: currentUser.email,
                   points,
-                  category,
-                  note,
+                  category: form.category.value,
+                  note: form.note.value.trim(),
                   date: new Date().toISOString()
                 };
 
                 setData(prev => ({ ...prev, cpLogs: [newLog, ...prev.cpLogs] }));
-                showToast(`Logged +${points} CP points for ${studentObj?.name}!`, "success");
-                setShowLogCpModal(false);
+                showToast(`Awarded +${points} CP to ${studentObj?.name}!`, "success");
+                setShowCpModal(false);
               }}
               className="space-y-3 text-xs"
             >
               <div>
                 <label className="font-semibold block mb-1">Student:</label>
                 <select name="student" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                  {currentBatch.students.map(s => (
+                  {classStudents.map(s => (
                     <option key={s.email} value={s.email}>{s.name} ({s.roll})</option>
                   ))}
                 </select>
               </div>
 
               <div>
-                <label className="font-semibold block mb-1">Subject / Course:</label>
+                <label className="font-semibold block mb-1">Subject:</label>
                 <select name="subject" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                  {data.subjects.map(s => (
+                  {classSubjects.map(s => (
                     <option key={s.id} value={s.id}>{s.code} - {s.name}</option>
                   ))}
                 </select>
@@ -2146,9 +1887,9 @@ export default function App() {
                 <div>
                   <label className="font-semibold block mb-1">Points:</label>
                   <select name="points" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                    <option value="1">1 pt - Adequate Response</option>
+                    <option value="1">1 pt - Adequate</option>
                     <option value="2">2 pts - Framework Rigor</option>
-                    <option value="3">3 pts - Breakthrough Insight</option>
+                    <option value="3">3 pts - Breakthrough</option>
                   </select>
                 </div>
                 <div>
@@ -2157,23 +1898,17 @@ export default function App() {
                     <option>Breakthrough Insight</option>
                     <option>Framework Rigor</option>
                     <option>Cold-Call Response</option>
-                    <option>Analytical Critique</option>
                   </select>
                 </div>
               </div>
 
               <div>
                 <label className="font-semibold block mb-1">Faculty Remarks:</label>
-                <textarea
-                  name="note"
-                  rows="2"
-                  placeholder="e.g. Challenged unit economic assumption in market entry..."
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"
-                ></textarea>
+                <textarea name="note" rows="2" placeholder="e.g. Sharply critiqued CAC model..." className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></textarea>
               </div>
 
               <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowLogCpModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
+                <button type="button" onClick={() => setShowCpModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
                   Cancel
                 </button>
                 <button type="submit" className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold">
@@ -2185,16 +1920,89 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL: GRADE WITH RUBRIC (FACULTY) */}
+      {/* MODAL 6: POST ASSIGNMENT (FACULTY ONLY) */}
+      {showAsgModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">Post Case Study Assignment</h3>
+              <button onClick={() => setShowAsgModal(false)} className="text-slate-400 hover:text-slate-600">
+                <Icon name="x" className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                const form = e.target;
+                const newAsg = {
+                  id: `asg-${Date.now()}`,
+                  classId: effectiveClassId,
+                  subjectId: form.subject.value,
+                  title: form.title.value.trim(),
+                  desc: form.desc.value.trim(),
+                  due: new Date(form.due.value).toISOString(),
+                  maxMarks: Number(form.maxMarks.value) || 20,
+                  postedBy: currentUser.name
+                };
+
+                setData(prev => ({ ...prev, assignments: [newAsg, ...prev.assignments] }));
+                showToast("Assignment published!", "success");
+                setShowAsgModal(false);
+              }}
+              className="space-y-3 text-xs"
+            >
+              <div>
+                <label className="font-semibold block mb-1">Subject:</label>
+                <select name="subject" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
+                  {classSubjects.map(s => (
+                    <option key={s.id} value={s.id}>{s.code} - {s.name}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div>
+                <label className="font-semibold block mb-1">Case Study Title:</label>
+                <input name="title" required placeholder="e.g. HBS Case: Nike Direct Strategy" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="font-semibold block mb-1">Max Marks:</label>
+                  <input name="maxMarks" type="number" defaultValue="20" min="1" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+                <div>
+                  <label className="font-semibold block mb-1">Due Date & Time:</label>
+                  <input name="due" type="datetime-local" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                </div>
+              </div>
+
+              <div>
+                <label className="font-semibold block mb-1">Instructions:</label>
+                <textarea name="desc" rows="3" required placeholder="State questions, required appendices, and formatting..." className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></textarea>
+              </div>
+
+              <div className="pt-2 flex justify-end gap-2">
+                <button type="button" onClick={() => setShowAsgModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
+                  Cancel
+                </button>
+                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
+                  Publish Case
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
+
+      {/* MODAL 7: GRADE SUBMISSION (FACULTY ONLY) */}
       {showGradeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-bold text-base text-slate-900 dark:text-white">
-                  Grade Submission: {showGradeModal.studentName}
-                </h3>
-                <div className="text-xs text-slate-400 mt-0.5">{showGradeModal.asgTitle}</div>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white">Grade Submission</h3>
+                <div className="text-xs text-slate-400">{showGradeModal.studentName}</div>
               </div>
               <button onClick={() => setShowGradeModal(null)} className="text-slate-400 hover:text-slate-600">
                 <Icon name="x" className="w-5 h-5" />
@@ -2209,87 +2017,34 @@ export default function App() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                const form = e.target;
-                const analysisMarks = Number(form.analysis.value) || 0;
-                const frameworkMarks = Number(form.framework.value) || 0;
-                const recMarks = Number(form.recommendations.value) || 0;
-                const totalMarks = analysisMarks + frameworkMarks + recMarks;
-                const feedback = form.feedback.value.trim();
+                const marks = Number(e.target.marks.value);
+                const feedback = e.target.feedback.value.trim();
 
-                if (totalMarks > showGradeModal.maxMarks) {
-                  showToast(`Total rubric marks (${totalMarks}) cannot exceed ${showGradeModal.maxMarks}!`, "error");
+                if (marks > showGradeModal.maxMarks) {
+                  showToast(`Marks cannot exceed max ${showGradeModal.maxMarks}!`, "error");
                   return;
                 }
 
                 setData(prev => ({
                   ...prev,
                   submissions: prev.submissions.map(s => 
-                    s.id === showGradeModal.id
-                      ? { 
-                          ...s, 
-                          marks: totalMarks, 
-                          rubric: { analysis: analysisMarks, framework: frameworkMarks, recommendations: recMarks },
-                          feedback 
-                        }
-                      : s
+                    s.id === showGradeModal.id ? { ...s, marks, feedback } : s
                   )
                 }));
 
-                showToast(`Grades published for ${showGradeModal.studentName}!`, "success");
+                showToast("Grade published!", "success");
                 setShowGradeModal(null);
               }}
               className="space-y-3 text-xs"
             >
-              <div className="grid grid-cols-3 gap-3 p-3 bg-slate-50 dark:bg-slate-850 rounded-xl">
-                <div>
-                  <label className="font-semibold block mb-1">Analysis ({showGradeModal.weights?.analysis || 8}m):</label>
-                  <input
-                    name="analysis"
-                    type="number"
-                    min="0"
-                    max={showGradeModal.weights?.analysis || 8}
-                    defaultValue={showGradeModal.rubric?.analysis ?? Math.round((showGradeModal.marks || 15) * 0.4)}
-                    required
-                    className="w-full px-2 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-center font-bold"
-                  />
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Frameworks ({showGradeModal.weights?.framework || 6}m):</label>
-                  <input
-                    name="framework"
-                    type="number"
-                    min="0"
-                    max={showGradeModal.weights?.framework || 6}
-                    defaultValue={showGradeModal.rubric?.framework ?? Math.round((showGradeModal.marks || 15) * 0.3)}
-                    required
-                    className="w-full px-2 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-center font-bold"
-                  />
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Recomm. ({showGradeModal.weights?.recommendations || 6}m):</label>
-                  <input
-                    name="recommendations"
-                    type="number"
-                    min="0"
-                    max={showGradeModal.weights?.recommendations || 6}
-                    defaultValue={showGradeModal.rubric?.recommendations ?? Math.round((showGradeModal.marks || 15) * 0.3)}
-                    required
-                    className="w-full px-2 py-1.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700 text-center font-bold"
-                  />
-                </div>
-              </div>
-
               <div>
-                <label className="font-semibold block mb-1">Qualitative Feedback & Rubric Remarks:</label>
-                <textarea
-                  name="feedback"
-                  rows="3"
-                  defaultValue={showGradeModal.feedback || ""}
-                  placeholder="State specific strengths in valuation, DCF sensitivity, or strategic risks..."
-                  className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"
-                ></textarea>
+                <label className="font-semibold block mb-1">Marks Awarded (out of {showGradeModal.maxMarks}):</label>
+                <input name="marks" type="number" min="0" max={showGradeModal.maxMarks} defaultValue={showGradeModal.marks ?? ""} required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
               </div>
-
+              <div>
+                <label className="font-semibold block mb-1">Feedback Remarks:</label>
+                <textarea name="feedback" rows="2" defaultValue={showGradeModal.feedback || ""} placeholder="Add remarks..." className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></textarea>
+              </div>
               <div className="pt-2 flex justify-end gap-2">
                 <button type="button" onClick={() => setShowGradeModal(null)} className="px-4 py-2 border rounded-xl font-semibold">
                   Cancel
@@ -2303,314 +2058,7 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL: CREATE TASK */}
-      {showTaskModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">Create New Task</h3>
-              <button onClick={() => setShowTaskModal(false)} className="text-slate-400 hover:text-slate-600">
-                <Icon name="x" className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target;
-                const title = form.title.value.trim();
-                const topic = form.topic.value.trim();
-                const due = form.due.value;
-                const priority = form.priority.value;
-                const teamId = form.teamId.value || null;
-
-                if (teamId) {
-                  const teamTasks = data.tasks.filter(t => t.teamId === teamId && !t.done);
-                  if (teamTasks.length >= data.limits.teamTasks) {
-                    showToast(`Team has reached limit of ${data.limits.teamTasks} active tasks!`, "error");
-                    return;
-                  }
-                } else {
-                  const myIndiv = data.tasks.filter(t => !t.teamId && t.owner === user.email && !t.done);
-                  if (myIndiv.length >= data.limits.indivTasks) {
-                    showToast(`You have reached limit of ${data.limits.indivTasks} personal active tasks!`, "error");
-                    return;
-                  }
-                }
-
-                const newTask = {
-                  id: `tsk-${Date.now()}`,
-                  title,
-                  topic,
-                  due: due ? new Date(due).toISOString() : null,
-                  priority,
-                  teamId,
-                  owner: user.email,
-                  by: user.name,
-                  done: false
-                };
-
-                setData(prev => ({ ...prev, tasks: [newTask, ...prev.tasks] }));
-                showToast("Task created successfully!", "success");
-                setShowTaskModal(false);
-              }}
-              className="space-y-3 text-xs"
-            >
-              <div>
-                <label className="font-semibold block mb-1">Task Title:</label>
-                <input name="title" required placeholder="e.g. Porter's 5 forces slide synthesis" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Course / Subject Topic:</label>
-                <input name="topic" required placeholder="e.g. Marketing Management" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="font-semibold block mb-1">Priority:</label>
-                  <select name="priority" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                    <option>High</option>
-                    <option>Medium</option>
-                    <option>Low</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Scope:</label>
-                  <select name="teamId" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                    <option value="">Personal Task</option>
-                    {userTeams.map(t => (
-                      <option key={t.id} value={t.id}>Team: {t.name}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Due Date & Time:</label>
-                <input name="due" type="datetime-local" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-
-              <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowTaskModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
-                  Cancel
-                </button>
-                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
-                  Add Task
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL: POST ASSIGNMENT (FACULTY) */}
-      {showAsgModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">Post Case Assignment</h3>
-              <button onClick={() => setShowAsgModal(false)} className="text-slate-400 hover:text-slate-600">
-                <Icon name="x" className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target;
-                const newAsg = {
-                  id: `asg-${Date.now()}`,
-                  subjectId: form.subject.value,
-                  title: form.title.value.trim(),
-                  desc: form.desc.value.trim(),
-                  due: new Date(form.due.value).toISOString(),
-                  maxMarks: Number(form.maxMarks.value) || 20,
-                  rubricWeights: {
-                    analysis: Number(form.analysisWeight.value) || 8,
-                    framework: Number(form.frameworkWeight.value) || 6,
-                    recommendations: Number(form.recWeight.value) || 6
-                  },
-                  postedBy: user.name
-                };
-
-                setData(prev => ({ ...prev, assignments: [newAsg, ...prev.assignments] }));
-                showToast("Case assignment published to cohort!", "success");
-                setShowAsgModal(false);
-              }}
-              className="space-y-3 text-xs"
-            >
-              <div>
-                <label className="font-semibold block mb-1">Subject / Course:</label>
-                <select name="subject" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                  {data.subjects.map(s => (
-                    <option key={s.id} value={s.id}>{s.code} - {s.name}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Case Study Title:</label>
-                <input name="title" required placeholder="e.g. Tesla Gigafactory Capital Allocation Strategy" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="font-semibold block mb-1">Max Marks:</label>
-                  <input name="maxMarks" type="number" min="1" defaultValue="20" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Due Date & Time:</label>
-                  <input name="due" type="datetime-local" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-3 gap-2">
-                <div>
-                  <label className="font-semibold block mb-1">Analysis Wt:</label>
-                  <input name="analysisWeight" type="number" defaultValue="8" className="w-full px-2 py-1 rounded bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Framework Wt:</label>
-                  <input name="frameworkWeight" type="number" defaultValue="6" className="w-full px-2 py-1 rounded bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Recomm. Wt:</label>
-                  <input name="recWeight" type="number" defaultValue="6" className="w-full px-2 py-1 rounded bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Submission Instructions:</label>
-                <textarea name="desc" rows="3" required placeholder="State key strategic questions, formatting specifications, and required appendices..." className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></textarea>
-              </div>
-
-              <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowAsgModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
-                  Cancel
-                </button>
-                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
-                  Post to Cohort
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL: FORM SYNDICATE GROUP */}
-      {showTeamModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">Form Syndicate Group</h3>
-              <button onClick={() => setShowTeamModal(false)} className="text-slate-400 hover:text-slate-600">
-                <Icon name="x" className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target;
-                const name = form.teamName.value.trim();
-
-                const newTeam = {
-                  id: `t-${Date.now()}`,
-                  name,
-                  batchId: selectedBatch,
-                  leader: user.name,
-                  members: [user.name]
-                };
-
-                setData(prev => ({ ...prev, teams: [...prev.teams, newTeam] }));
-                showToast(`Formed ${name}! Registered as team leader.`, "success");
-                setShowTeamModal(false);
-              }}
-              className="space-y-3 text-xs"
-            >
-              <div>
-                <label className="font-semibold block mb-1">Team Name:</label>
-                <input name="teamName" required placeholder="e.g. Phoenix Strategy Partners" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-              <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowTeamModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
-                  Cancel
-                </button>
-                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
-                  Create Group
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL: ADD COURSE (FACULTY) */}
-      {showCourseModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">Add Course Subject</h3>
-              <button onClick={() => setShowCourseModal(false)} className="text-slate-400 hover:text-slate-600">
-                <Icon name="x" className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target;
-                const newCourse = {
-                  id: `s-${Date.now()}`,
-                  code: form.code.value.trim().toUpperCase(),
-                  name: form.name.value.trim(),
-                  fac: user.name,
-                  credits: Number(form.credits.value) || 3,
-                  totalClasses: Number(form.totalClasses.value) || 24
-                };
-
-                setData(prev => ({ ...prev, subjects: [...prev.subjects, newCourse] }));
-                showToast(`Course ${newCourse.code} created!`, "success");
-                setShowCourseModal(false);
-              }}
-              className="space-y-3 text-xs"
-            >
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="font-semibold block mb-1">Course Code:</label>
-                  <input name="code" required placeholder="e.g. STR701" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Credits:</label>
-                  <input name="credits" type="number" defaultValue="3" min="1" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Subject Name:</label>
-                <input name="name" required placeholder="e.g. Strategic Management & Corporate Governance" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Planned Lecture Count:</label>
-                <input name="totalClasses" type="number" defaultValue="24" min="10" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-
-              <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowCourseModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
-                  Cancel
-                </button>
-                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
-                  Save Course
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL: POST NOTICE */}
+      {/* MODAL 8: PUBLISH NOTICE (FACULTY ONLY) */}
       {showNoticeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
@@ -2627,47 +2075,36 @@ export default function App() {
                 const form = e.target;
                 const newNotice = {
                   id: `nt-${Date.now()}`,
+                  classId: effectiveClassId,
                   title: form.title.value.trim(),
                   category: form.category.value,
                   msg: form.msg.value.trim(),
-                  pinned: form.pinned.checked,
-                  postedAt: new Date().toISOString(),
-                  author: user.name
+                  date: new Date().toISOString(),
+                  author: currentUser.name
                 };
 
                 setData(prev => ({ ...prev, notices: [newNotice, ...prev.notices] }));
-                showToast("Notice published to cohort board!", "success");
+                showToast("Notice published!", "success");
                 setShowNoticeModal(false);
               }}
               className="space-y-3 text-xs"
             >
               <div>
-                <label className="font-semibold block mb-1">Notice Title:</label>
-                <input name="title" required placeholder="e.g. Schedule for Trimester Comprehensive Viva" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                <label className="font-semibold block mb-1">Title:</label>
+                <input name="title" required placeholder="e.g. Mid-term Comprehensive Exam Dates" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
               </div>
-
               <div>
                 <label className="font-semibold block mb-1">Category:</label>
                 <select name="category" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
                   <option>Academic</option>
                   <option>Placements</option>
                   <option>Examinations</option>
-                  <option>Administrative</option>
                 </select>
               </div>
-
               <div>
-                <label className="font-semibold block mb-1">Circular Message:</label>
-                <textarea name="msg" rows="3" required placeholder="Write the full circular description..." className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></textarea>
+                <label className="font-semibold block mb-1">Message:</label>
+                <textarea name="msg" rows="3" required placeholder="Write message..." className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></textarea>
               </div>
-
-              <div className="flex items-center gap-2">
-                <input name="pinned" type="checkbox" id="pin-notice" className="w-4 h-4 rounded text-blue-600 accent-blue-600" />
-                <label htmlFor="pin-notice" className="font-semibold text-slate-700 dark:text-slate-300">
-                  Pin to top of student dashboard
-                </label>
-              </div>
-
               <div className="pt-2 flex justify-end gap-2">
                 <button type="button" onClick={() => setShowNoticeModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
                   Cancel
@@ -2681,13 +2118,13 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL: ADD EVENT */}
-      {showEventModal && (
+      {/* MODAL 9: ADD STUDY TASK (STUDENT ONLY) */}
+      {showTaskModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">Schedule Calendar Event</h3>
-              <button onClick={() => setShowEventModal(false)} className="text-slate-400 hover:text-slate-600">
+              <h3 className="font-bold text-base text-slate-900 dark:text-white">Add Personal Study Task</h3>
+              <button onClick={() => setShowTaskModal(false)} className="text-slate-400 hover:text-slate-600">
                 <Icon name="x" className="w-5 h-5" />
               </button>
             </div>
@@ -2696,58 +2133,35 @@ export default function App() {
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.target;
-                const newEv = {
-                  id: `ev-${Date.now()}`,
+                const newTask = {
+                  id: `tsk-${Date.now()}`,
+                  studentEmail: currentUser.email,
+                  classId: effectiveClassId,
                   title: form.title.value.trim(),
-                  category: form.category.value,
-                  at: new Date(form.at.value).toISOString(),
-                  where: form.where.value.trim(),
-                  speaker: form.speaker.value.trim()
+                  topic: form.topic.value.trim(),
+                  done: false
                 };
 
-                setData(prev => ({ ...prev, events: [...prev.events, newEv] }));
-                showToast("Event added to academic calendar!", "success");
-                setShowEventModal(false);
+                setData(prev => ({ ...prev, tasks: [newTask, ...prev.tasks] }));
+                showToast("Task created!", "success");
+                setShowTaskModal(false);
               }}
               className="space-y-3 text-xs"
             >
               <div>
-                <label className="font-semibold block mb-1">Event Title:</label>
-                <input name="title" required placeholder="e.g. Industry CXO Keynote" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                <label className="font-semibold block mb-1">Task Title:</label>
+                <input name="title" required placeholder="e.g. Read HBR Case on Capital Allocation" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
               </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="font-semibold block mb-1">Category:</label>
-                  <select name="category" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                    <option>Guest Lecture</option>
-                    <option>Academics</option>
-                    <option>Workshop</option>
-                    <option>Placement</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Date & Time:</label>
-                  <input name="at" type="datetime-local" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-                </div>
-              </div>
-
               <div>
-                <label className="font-semibold block mb-1">Location or Link:</label>
-                <input name="where" required placeholder="e.g. Seminar Hall 1 or Zoom Link" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                <label className="font-semibold block mb-1">Subject / Course:</label>
+                <input name="topic" required placeholder="e.g. Marketing Management" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
               </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Speaker / Facilitator (Optional):</label>
-                <input name="speaker" placeholder="e.g. Mr. Rajesh Sharma (Managing Director, PwC)" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
-              </div>
-
               <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowEventModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
+                <button type="button" onClick={() => setShowTaskModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
                   Cancel
                 </button>
                 <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
-                  Schedule Event
+                  Save Task
                 </button>
               </div>
             </form>
@@ -2755,93 +2169,108 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL: IMPORT CSV */}
-      {showImportModal && (
+      {/* MODAL 10: SWITCH USER / LOGIN MODAL */}
+      {showSwitchUserModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
+          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">Import Students (CSV)</h3>
-              <button onClick={() => setShowImportModal(false)} className="text-slate-400 hover:text-slate-600">
+              <div>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white">Switch Role & User</h3>
+                <p className="text-xs text-slate-400">Toggle between Faculty Administrator or an enrolled student.</p>
+              </div>
+              <button onClick={() => setShowSwitchUserModal(false)} className="text-slate-400 hover:text-slate-600">
                 <Icon name="x" className="w-5 h-5" />
               </button>
             </div>
 
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target;
-                const text = form.csv.value.trim();
-                if (!text) return;
-
-                const lines = text.split("\n");
-                const newStudents = [];
-
-                lines.forEach((l, idx) => {
-                  const parts = l.split(",").map(p => p.trim());
-                  if (parts.length >= 2) {
-                    const name = parts[0];
-                    const email = parts[1];
-                    const roll = parts[2] || `25MBA${100 + idx}`;
-                    const spec = parts[3] || "General Management";
-
-                    if (!currentBatch.students.some(s => s.email === email)) {
-                      newStudents.push({
-                        name,
-                        email,
-                        roll,
-                        spec,
-                        attendance: { s1: { attended: 20, total: 24 } }
-                      });
-                    }
-                  }
-                });
-
-                if (newStudents.length === 0) {
-                  showToast("No new student rows found in text.", "error");
-                  return;
-                }
-
-                setData(prev => ({
-                  ...prev,
-                  batches: prev.batches.map(b => 
-                    b.id === selectedBatch 
-                      ? { ...b, students: [...b.students, ...newStudents] }
-                      : b
-                  )
-                }));
-
-                showToast(`Imported ${newStudents.length} candidates into ${currentBatch.name}!`, "success");
-                setShowImportModal(false);
-              }}
-              className="space-y-3 text-xs"
-            >
-              <div>
-                <label className="font-semibold block mb-1">
-                  Paste rows (Format: Name, Email, RollNo, Specialization):
-                </label>
-                <textarea
-                  name="csv"
-                  rows="5"
-                  required
-                  placeholder="Kavitha Reddy, kavitha.r25@psgim.ac.in, 25MBA088, Finance&#10;Manoj Kumar, manoj.k25@psgim.ac.in, 25MBA089, Operations"
-                  className="w-full font-mono text-[11px] px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"
-                ></textarea>
-              </div>
-
-              <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowImportModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
-                  Cancel
-                </button>
-                <button type="submit" className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold">
-                  Import Students
+            <div className="space-y-4 text-xs">
+              
+              {/* Option A: Faculty Admin */}
+              <div className="p-4 rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/30 flex items-center justify-between">
+                <div>
+                  <div className="font-bold text-purple-900 dark:text-purple-200 flex items-center gap-1.5">
+                    <span>Dr. Faculty Admin</span>
+                    <span className="text-[10px] bg-purple-200 dark:bg-purple-900 px-1.5 py-0.5 rounded font-black">ADMIN</span>
+                  </div>
+                  <div className="text-[11px] text-slate-500">Full administration: manage classes, 9 subjects, & grading</div>
+                </div>
+                <button
+                  onClick={() => {
+                    setCurrentUser({
+                      role: "faculty",
+                      name: "Dr. Faculty Admin",
+                      email: "admin.faculty@psgim.ac.in",
+                      designation: "Program Coordinator"
+                    });
+                    setActiveTab("home");
+                    setShowSwitchUserModal(false);
+                    showToast("Switched to Faculty Admin view.", "info");
+                  }}
+                  className="px-3 py-1.5 rounded-xl bg-purple-600 text-white font-bold hover:bg-purple-700 transition"
+                >
+                  Switch
                 </button>
               </div>
-            </form>
+
+              {/* Option B: Enrolled Students */}
+              <div className="space-y-2">
+                <span className="font-bold text-slate-500 uppercase tracking-wider text-[10px] block">
+                  Enrolled Students in {currentClass?.name || "Classes"} ({data.students.length}):
+                </span>
+
+                {data.students.length === 0 ? (
+                  <p className="text-slate-400 italic py-2">
+                    No students have been enrolled by faculty yet.
+                  </p>
+                ) : (
+                  <div className="max-h-48 overflow-y-auto space-y-1.5 pr-1">
+                    {data.students.map(stu => {
+                      const studentClass = data.classes.find(c => c.id === stu.classId);
+                      const isCurrent = currentUser.email === stu.email;
+
+                      return (
+                        <div key={stu.id} className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
+                          <div>
+                            <div className="font-bold text-slate-900 dark:text-white">{stu.name}</div>
+                            <div className="text-[11px] text-slate-400 font-mono">
+                              {stu.roll} • {studentClass ? studentClass.name : "Class"}
+                            </div>
+                          </div>
+
+                          <button
+                            onClick={() => {
+                              setCurrentUser({
+                                role: "student",
+                                name: stu.name,
+                                email: stu.email,
+                                roll: stu.roll,
+                                classId: stu.classId
+                              });
+                              setActiveTab("home");
+                              setShowSwitchUserModal(false);
+                              showToast(`Logged in as student ${stu.name}`, "info");
+                            }}
+                            className={`px-3 py-1 rounded-lg text-xs font-bold transition ${
+                              isCurrent 
+                                ? "bg-emerald-600 text-white" 
+                                : "bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-blue-600 hover:text-white"
+                            }`}
+                          >
+                            {isCurrent ? "Active" : "Login as Student"}
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
+
+            </div>
           </div>
         </div>
       )}
 
-      {/* Mobile Bottom Navigation */}
+      {/* Mobile Bottom Navigation Bar */}
       <nav className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 flex items-center justify-around px-2 py-1.5">
         {navTabs.slice(0, 5).map(t => {
           const active = activeTab === t.id;
