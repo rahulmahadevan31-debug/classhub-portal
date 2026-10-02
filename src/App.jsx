@@ -74,7 +74,7 @@ const Icon = ({ name, className = "w-5 h-5", ...props }) => {
   );
 };
 
-// ZERO-DATA CLEAN SLATE: Only faculties create classes, subjects, students, and curriculum.
+// ZERO-DATA INITIAL STATE (CP Tracker removed; student-registered attendance enabled)
 const EMPTY_INITIAL_DATA = {
   classes: [],     // { id, name, section, academicYear }
   students: [],    // { id, name, email, roll, classId }
@@ -84,13 +84,13 @@ const EMPTY_INITIAL_DATA = {
   subjects: [],    // { id, classId, code, name, facultyEmail, facultyName, credits, totalClasses }
   assignments: [], // { id, classId, subjectId, title, desc, due, maxMarks, rubricWeights, postedBy }
   submissions: [], // { id, asgId, studentEmail, studentName, content, submittedAt, marks, rubric, feedback }
-  cpLogs: [],      // { id, classId, subjectId, studentEmail, studentName, facultyEmail, points, category, note, date }
-  rollCalls: [],   // { id, classId, subjectId, date, presentEmails: [] }
+  attendanceRecords: [], // { id, classId, subjectId, date, studentEmail, studentName, studentRoll, timestamp }
   notices: [],     // { id, classId, title, category, msg, pinned, author, date }
   tasks: []        // { id, studentEmail, classId, title, topic, due, priority, done }
 };
 
 const STORAGE_KEY = "classhub_isolated_db_v2";
+const COLLEGE_DOMAIN = "@psgim.ac.in";
 
 export default function App() {
   const [data, setData] = useState(() => {
@@ -106,8 +106,15 @@ export default function App() {
     return EMPTY_INITIAL_DATA;
   });
 
-  // Current session user: either Faculty (Admin) or a specific enrolled Student
+  // Active session state: null when logged out, enforces @psgim.ac.in
   const [currentUser, setCurrentUser] = useState(() => {
+    try {
+      const stored = localStorage.getItem("classhub_session_user");
+      if (stored) {
+        const u = JSON.parse(stored);
+        if (u?.email?.toLowerCase().endsWith(COLLEGE_DOMAIN)) return u;
+      }
+    } catch (e) {}
     return {
       role: "faculty",
       name: "Dr. Faculty Admin",
@@ -115,6 +122,12 @@ export default function App() {
       designation: "Program Coordinator"
     };
   });
+
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginRole, setLoginRole] = useState("student");
+  const [loginName, setLoginName] = useState("");
+  const [loginRoll, setLoginRoll] = useState("");
+  const [loginError, setLoginError] = useState("");
 
   const [activeTab, setActiveTab] = useState("home");
   const [selectedClassId, setSelectedClassId] = useState("");
@@ -129,22 +142,20 @@ export default function App() {
 
   const [confirmModal, setConfirmModal] = useState(null);
 
-  // Form modals state
+  // Form modals state (CP modal removed)
   const [showClassModal, setShowClassModal] = useState(false);
   const [showSubjectModal, setShowSubjectModal] = useState(false);
   const [showStudentModal, setShowStudentModal] = useState(false);
   const [showCsvStudentModal, setShowCsvStudentModal] = useState(false);
   const [showAsgModal, setShowAsgModal] = useState(false);
   const [showGradeModal, setShowGradeModal] = useState(null);
-  const [showCpModal, setShowCpModal] = useState(false);
-  const [showRollCallModal, setShowRollCallModal] = useState(false);
   const [showNoticeModal, setShowNoticeModal] = useState(false);
   const [showTaskModal, setShowTaskModal] = useState(false);
   const [showSwitchUserModal, setShowSwitchUserModal] = useState(false);
 
-  // Roll call dynamic state
-  const [rollCallSubId, setRollCallSubId] = useState("");
-  const [rollCallRoster, setRollCallRoster] = useState({});
+  // Attendance filter state for faculty
+  const [attendanceSubjectFilter, setAttendanceSubjectFilter] = useState("");
+  const [attendanceDateFilter, setAttendanceDateFilter] = useState(new Date().toISOString().slice(0, 10));
 
   useEffect(() => {
     try {
@@ -153,6 +164,16 @@ export default function App() {
       console.error("Local persistence error:", err);
     }
   }, [data]);
+
+  useEffect(() => {
+    try {
+      if (currentUser) {
+        localStorage.setItem("classhub_session_user", JSON.stringify(currentUser));
+      } else {
+        localStorage.removeItem("classhub_session_user");
+      }
+    } catch (err) {}
+  }, [currentUser]);
 
   useEffect(() => {
     const root = document.documentElement;
@@ -171,8 +192,8 @@ export default function App() {
     }
   }, [data.classes, selectedClassId]);
 
-  const isFaculty = currentUser.role === "faculty";
-  const isStudent = currentUser.role === "student";
+  const isFaculty = currentUser?.role === "faculty";
+  const isStudent = currentUser?.role === "student";
 
   // If student is logged in, their class is strictly their enrolled class!
   const effectiveClassId = isStudent ? currentUser.classId : selectedClassId;
@@ -180,13 +201,32 @@ export default function App() {
     return data.classes.find(c => c.id === effectiveClassId) || null;
   }, [data.classes, effectiveClassId]);
 
-  // STRICT ISOLATION 1: Subjects strictly belonging to this Class
+  // ALL subjects in this class
   const classSubjects = useMemo(() => {
     if (!effectiveClassId) return [];
     return data.subjects.filter(s => s.classId === effectiveClassId);
   }, [data.subjects, effectiveClassId]);
 
-  // STRICT ISOLATION 2: The faculties for this class (e.g. 9 faculties for 9 subjects)
+  // FACULTY ISOLATION: A faculty only sees and manages subjects that THEY specifically teach!
+  const myFacultySubjects = useMemo(() => {
+    if (!isFaculty) return classSubjects;
+    const email = currentUser?.email?.toLowerCase().trim();
+    const handled = classSubjects.filter(s => s.facultyEmail?.toLowerCase().trim() === email);
+    // If faculty is admin coordinator and hasn't assigned subjects to themselves yet, fallback to all class subjects
+    if (handled.length === 0 && currentUser?.email === "admin.faculty@psgim.ac.in") {
+      return classSubjects;
+    }
+    return handled;
+  }, [isFaculty, classSubjects, currentUser]);
+
+  // Auto-select faculty's handled subject for attendance tab
+  useEffect(() => {
+    if (isFaculty && myFacultySubjects.length > 0 && (!attendanceSubjectFilter || !myFacultySubjects.some(s => s.id === attendanceSubjectFilter))) {
+      setAttendanceSubjectFilter(myFacultySubjects[0].id);
+    }
+  }, [isFaculty, myFacultySubjects, attendanceSubjectFilter]);
+
+  // Cohort faculties
   const classFaculties = useMemo(() => {
     const facultyMap = new Map();
     classSubjects.forEach(sub => {
@@ -204,53 +244,65 @@ export default function App() {
     return Array.from(facultyMap.values());
   }, [classSubjects]);
 
-  // STRICT ISOLATION 3: Students strictly enrolled in this Class
+  // Cohort students
   const classStudents = useMemo(() => {
     if (!effectiveClassId) return [];
     return data.students.filter(s => s.classId === effectiveClassId);
   }, [data.students, effectiveClassId]);
 
-  // STRICT ISOLATION 4: Assignments strictly for this Class's subjects
+  // Assignments filtered: Faculty only sees assignments for their own subjects!
   const classAssignments = useMemo(() => {
     if (!effectiveClassId) return [];
-    return data.assignments.filter(a => a.classId === effectiveClassId);
-  }, [data.assignments, effectiveClassId]);
+    const all = data.assignments.filter(a => a.classId === effectiveClassId);
+    if (isFaculty) {
+      const mySubjectIds = new Set(myFacultySubjects.map(s => s.id));
+      return all.filter(a => mySubjectIds.has(a.subjectId));
+    }
+    return all;
+  }, [data.assignments, effectiveClassId, isFaculty, myFacultySubjects]);
 
-  // STRICT ISOLATION 5: Class notices
+  // Class notices
   const classNotices = useMemo(() => {
     if (!effectiveClassId) return [];
     return data.notices.filter(n => n.classId === effectiveClassId || n.classId === "all");
   }, [data.notices, effectiveClassId]);
 
-  // Attendance radar calculation for student (against 75% rule)
+  // Attendance calculation based on student self-registrations
   const studentAttendanceStats = useMemo(() => {
     if (!isStudent || !currentClass) return [];
 
     return classSubjects.map(sub => {
-      // Find all roll calls conducted for this subject in this class
-      const subjectSessions = data.rollCalls.filter(rc => rc.classId === effectiveClassId && rc.subjectId === sub.id);
-      const totalSessions = Math.max(subjectSessions.length, sub.totalClasses ? Math.min(subjectSessions.length, sub.totalClasses) : subjectSessions.length);
+      // Find all unique dates attendance was registered in this subject
+      const subjectRecords = data.attendanceRecords.filter(r => r.classId === effectiveClassId && r.subjectId === sub.id);
+      const uniqueLectureDates = Array.from(new Set(subjectRecords.map(r => r.date)));
+      const conductedCount = Math.max(uniqueLectureDates.length, 1);
+
+      // Count if this student registered for those dates
+      const attendedCount = subjectRecords.filter(r => r.studentEmail?.toLowerCase() === currentUser.email?.toLowerCase()).length;
       
-      const attendedCount = subjectSessions.filter(rc => rc.presentEmails && rc.presentEmails.includes(currentUser.email)).length;
-      const effectiveTotal = Math.max(1, subjectSessions.length);
-      const percentage = subjectSessions.length === 0 ? 100 : Math.round((attendedCount / effectiveTotal) * 100);
-      const isAtRisk = percentage < 75;
+      const percentage = uniqueLectureDates.length === 0 ? 100 : Math.round((attendedCount / uniqueLectureDates.length) * 100);
+      const isAtRisk = uniqueLectureDates.length > 0 && percentage < 75;
 
       let classesNeededToClear = 0;
-      if (isAtRisk && subjectSessions.length > 0) {
-        classesNeededToClear = Math.max(1, Math.ceil((0.75 * effectiveTotal - attendedCount) / 0.25));
+      if (isAtRisk) {
+        classesNeededToClear = Math.max(1, Math.ceil((0.75 * conductedCount - attendedCount) / 0.25));
       }
+
+      // Check if student already registered attendance for today
+      const today = new Date().toISOString().slice(0, 10);
+      const hasRegisteredToday = subjectRecords.some(r => r.studentEmail?.toLowerCase() === currentUser.email?.toLowerCase() && r.date === today);
 
       return {
         subject: sub,
         attended: attendedCount,
-        conducted: subjectSessions.length,
+        conducted: uniqueLectureDates.length,
         percentage,
         isAtRisk,
-        classesNeededToClear
+        classesNeededToClear,
+        hasRegisteredToday
       };
     });
-  }, [isStudent, currentClass, classSubjects, data.rollCalls, effectiveClassId, currentUser]);
+  }, [isStudent, currentClass, classSubjects, data.attendanceRecords, effectiveClassId, currentUser]);
 
   const formatDate = (iso) => {
     if (!iso) return "No date";
@@ -264,6 +316,97 @@ export default function App() {
     } catch (e) {
       return iso;
     }
+  };
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    setLoginError("");
+    const email = loginEmail.trim().toLowerCase();
+
+    if (!email.endsWith(COLLEGE_DOMAIN)) {
+      setLoginError(`Access denied. You must use your valid college email ending with ${COLLEGE_DOMAIN}`);
+      return;
+    }
+
+    if (loginRole === "student") {
+      // Check if enrolled or register session
+      const found = data.students.find(s => s.email.toLowerCase() === email);
+      if (found) {
+        setCurrentUser({
+          role: "student",
+          name: found.name,
+          email: found.email,
+          roll: found.roll,
+          classId: found.classId
+        });
+      } else {
+        if (!loginName || !loginRoll) {
+          setLoginError("Student email not found in cohort roster. Please provide your Name and Roll Number to complete login.");
+          return;
+        }
+        const defaultClassId = data.classes[0]?.id || "";
+        const newStu = {
+          id: `stu-${Date.now()}`,
+          name: loginName.trim(),
+          email,
+          roll: loginRoll.trim().toUpperCase(),
+          classId: defaultClassId
+        };
+        setData(prev => ({ ...prev, students: [...prev.students, newStu] }));
+        setCurrentUser({
+          role: "student",
+          name: newStu.name,
+          email: newStu.email,
+          roll: newStu.roll,
+          classId: defaultClassId
+        });
+      }
+    } else {
+      // Faculty login
+      const foundFac = data.faculties.find(f => f.email.toLowerCase() === email);
+      const name = foundFac ? foundFac.name : (loginName.trim() || email.split("@")[0].replace(/[._]/g, " ").toUpperCase());
+      
+      const newFac = {
+        role: "faculty",
+        name,
+        email,
+        designation: "Subject Professor"
+      };
+      setCurrentUser(newFac);
+    }
+
+    setActiveTab("home");
+    showToast(`Welcome! Logged in with ${email}`, "success");
+  };
+
+  const handleStudentRegisterAttendance = (subjectId) => {
+    const today = new Date().toISOString().slice(0, 10);
+    const existing = data.attendanceRecords.find(
+      r => r.classId === effectiveClassId && r.subjectId === subjectId && r.studentEmail?.toLowerCase() === currentUser.email?.toLowerCase() && r.date === today
+    );
+
+    if (existing) {
+      showToast("You have already registered your attendance for this subject today.", "info");
+      return;
+    }
+
+    const newRecord = {
+      id: `att-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
+      classId: effectiveClassId,
+      subjectId,
+      date: today,
+      studentEmail: currentUser.email,
+      studentName: currentUser.name,
+      studentRoll: currentUser.roll || "N/A",
+      timestamp: new Date().toISOString()
+    };
+
+    setData(prev => ({
+      ...prev,
+      attendanceRecords: [newRecord, ...prev.attendanceRecords]
+    }));
+
+    showToast("Attendance successfully registered for today's lecture!", "success");
   };
 
   const handleResetToClean = () => {
@@ -301,25 +444,130 @@ export default function App() {
     }
   };
 
+  // Navigation tabs (CP & Cold-Calls removed; Lecture Roll-Call renamed to Attendance)
   const navTabs = [
     { id: "home", label: "Dashboard", icon: "home" },
     ...(isFaculty 
       ? [
           { id: "classes", label: "Classes & 9 Subjects", icon: "academic" },
           { id: "students", label: "Cohort Students", icon: "users", badge: classStudents.length },
-          { id: "rollcall", label: "Lecture Roll-Call", icon: "rollCall" },
-          { id: "cp", label: "CP & Cold-Calls", icon: "cpTracker" },
+          { id: "attendance", label: "Subject Attendance", icon: "attendance" },
         ]
       : [
-          { id: "subjects", label: "My 9 Subjects & Faculty", icon: "subjects" },
-          { id: "attendance", label: "75% Attendance Radar", icon: "attendance" },
-          { id: "mycp", label: "My CP Performance", icon: "cpTracker" },
+          { id: "subjects", label: "My Subjects & Faculty", icon: "subjects" },
+          { id: "attendance", label: "Attendance & Check-in", icon: "attendance" },
           { id: "tasks", label: "Task Checklist", icon: "tasks" },
         ]
     ),
     { id: "asg", label: "Assignments", icon: "assignments", badge: classAssignments.length },
     { id: "notices", label: "Circulars", icon: "notices" }
   ];
+
+  // Authentication Barrier: If user is logged out, require valid @psgim.ac.in email
+  if (!currentUser) {
+    return (
+      <div className={`min-h-screen flex items-center justify-center p-4 transition-colors duration-200 ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'}`}>
+        <div className="w-full max-w-md p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-2xl space-y-6">
+          <div className="text-center space-y-2">
+            <div className="w-12 h-12 mx-auto rounded-2xl bg-blue-600 text-white flex items-center justify-center font-black text-2xl shadow-lg shadow-blue-500/25">
+              C
+            </div>
+            <h1 className="text-2xl font-black tracking-tight">ClassHub Portal</h1>
+            <p className="text-xs text-slate-500 dark:text-slate-400">
+              PSGIM Institutional Access. Only email addresses ending with <span className="font-bold text-blue-600 dark:text-blue-400">@psgim.ac.in</span> are authorized.
+            </p>
+          </div>
+
+          {loginError && (
+            <div className="p-3.5 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-900 text-rose-800 dark:text-rose-300 text-xs flex items-center gap-2">
+              <Icon name="alert" className="w-4 h-4 flex-shrink-0 text-rose-600" />
+              <span>{loginError}</span>
+            </div>
+          )}
+
+          <form onSubmit={handleLoginSubmit} className="space-y-4 text-xs">
+            <div>
+              <label className="font-bold block mb-1">Select Role:</label>
+              <div className="grid grid-cols-2 gap-2">
+                <button
+                  type="button"
+                  onClick={() => setLoginRole("student")}
+                  className={`py-2 rounded-xl font-bold border transition ${
+                    loginRole === "student"
+                      ? "bg-blue-600 text-white border-blue-600"
+                      : "bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300"
+                  }`}
+                >
+                  Student
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setLoginRole("faculty")}
+                  className={`py-2 rounded-xl font-bold border transition ${
+                    loginRole === "faculty"
+                      ? "bg-purple-600 text-white border-purple-600"
+                      : "bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300"
+                  }`}
+                >
+                  Faculty
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <label className="font-bold block mb-1">College Email ID ({COLLEGE_DOMAIN}):</label>
+              <input
+                type="email"
+                required
+                value={loginEmail}
+                onChange={(e) => setLoginEmail(e.target.value)}
+                placeholder={`yourname${COLLEGE_DOMAIN}`}
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 font-mono text-xs focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
+
+            {loginRole === "student" && (
+              <div className="grid grid-cols-2 gap-2">
+                <div>
+                  <label className="font-bold block mb-1">Your Full Name:</label>
+                  <input
+                    type="text"
+                    value={loginName}
+                    onChange={(e) => setLoginName(e.target.value)}
+                    placeholder="e.g. Aarav Sharma"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs"
+                  />
+                </div>
+                <div>
+                  <label className="font-bold block mb-1">Roll Number:</label>
+                  <input
+                    type="text"
+                    value={loginRoll}
+                    onChange={(e) => setLoginRoll(e.target.value)}
+                    placeholder="e.g. 25MBA001"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700 text-xs"
+                  />
+                </div>
+              </div>
+            )}
+
+            <button
+              type="submit"
+              className="w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold shadow-md shadow-blue-500/20 transition"
+            >
+              Sign In to ClassHub
+            </button>
+          </form>
+
+          <div className="pt-2 text-center">
+            <span className="text-[11px] text-slate-400">
+              Only @psgim.ac.in accounts are permitted access.
+            </span>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen flex flex-col font-sans transition-colors duration-200 ${theme === 'dark' ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'}`}>
@@ -421,6 +669,16 @@ export default function App() {
           >
             <Icon name="user" className="w-3.5 h-3.5" />
             <span>Switch Role / User</span>
+          </button>
+
+          <button
+            onClick={() => {
+              setCurrentUser(null);
+              showToast("Signed out successfully.", "info");
+            }}
+            className="px-3 py-1.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-xs font-bold text-slate-600 dark:text-slate-300 transition"
+          >
+            Sign Out
           </button>
 
           <button
@@ -615,12 +873,12 @@ export default function App() {
 
                   <div className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
                     <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-1">
-                      Roll-Call Sessions
+                      Attendance Check-ins
                     </div>
                     <div className="text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                      {data.rollCalls.filter(r => r.classId === effectiveClassId).length}
+                      {data.attendanceRecords.filter(r => r.classId === effectiveClassId).length}
                     </div>
-                    <div className="text-[11px] text-slate-500 mt-1">Classes conducted</div>
+                    <div className="text-[11px] text-slate-500 mt-1">Total registered</div>
                   </div>
                 </div>
               )}
@@ -917,241 +1175,240 @@ export default function App() {
             </div>
           )}
 
-          {/* TAB 4: FACULTY - LECTURE ROLL CALL */}
-          {activeTab === "rollcall" && isFaculty && (
+          {/* TAB 4: FACULTY - SUBJECT ATTENDANCE (ONLY FOR THEIR HANDLED SUBJECTS) */}
+          {activeTab === "attendance" && isFaculty && (
             <div className="space-y-6 animate-fadeIn">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Lecture Roll-Call Session
+                    Subject Attendance Monitoring
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Conduct roll call for any of the 9 subjects. Attendance percentage and debarment radars update live.
+                    You can only view and manage attendance for the specific subjects you teach ({currentUser.name}).
                   </p>
                 </div>
 
                 <div className="flex items-center gap-3">
                   <select
-                    value={rollCallSubId}
-                    onChange={(e) => setRollCallSubId(e.target.value)}
+                    value={attendanceSubjectFilter}
+                    onChange={(e) => setAttendanceSubjectFilter(e.target.value)}
                     className="px-3 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700"
                   >
-                    <option value="">-- Choose Subject --</option>
-                    {classSubjects.map(s => (
-                      <option key={s.id} value={s.id}>{s.code} - {s.name} ({s.facultyName})</option>
+                    {myFacultySubjects.map(s => (
+                      <option key={s.id} value={s.id}>{s.code} - {s.name}</option>
                     ))}
                   </select>
+
+                  <input
+                    type="date"
+                    value={attendanceDateFilter}
+                    onChange={(e) => setAttendanceDateFilter(e.target.value)}
+                    className="px-3 py-2 text-xs font-bold rounded-xl bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-700"
+                  />
                 </div>
               </div>
 
-              {!rollCallSubId ? (
+              {myFacultySubjects.length === 0 ? (
                 <div className="p-8 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-xs text-slate-400">
-                  Please select one of the subjects above to begin taking roll call.
+                  You are not assigned to teach any subjects in this class yet. Assign yourself to a subject under "Classes & 9 Subjects".
                 </div>
               ) : (
                 <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm p-5 space-y-4">
                   <div className="flex items-center justify-between text-xs pb-3 border-b border-slate-200 dark:border-slate-800">
-                    <span className="font-bold text-slate-600 dark:text-slate-300">
-                      Cohort: {currentClass?.name} • {classStudents.length} Students
-                    </span>
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => {
-                          const updated = {};
-                          classStudents.forEach(s => { updated[s.email] = true; });
-                          setRollCallRoster(updated);
-                        }}
-                        className="px-2.5 py-1 text-[11px] rounded font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300"
-                      >
-                        Mark All Present
-                      </button>
-                      <button
-                        onClick={() => {
-                          const updated = {};
-                          classStudents.forEach(s => { updated[s.email] = false; });
-                          setRollCallRoster(updated);
-                        }}
-                        className="px-2.5 py-1 text-[11px] rounded font-semibold bg-rose-100 text-rose-800 dark:bg-rose-950 dark:text-rose-300"
-                      >
-                        Mark All Absent
-                      </button>
+                    <div>
+                      <span className="font-bold text-slate-900 dark:text-white text-sm">
+                        Subject: {myFacultySubjects.find(s => s.id === attendanceSubjectFilter)?.name || "Selected Subject"}
+                      </span>
+                      <span className="block text-[11px] text-slate-400">
+                        Date: {attendanceDateFilter} • Registered Attendance by Students
+                      </span>
                     </div>
+
+                    <span className="px-2.5 py-1 rounded-full bg-blue-100 dark:bg-blue-950 text-blue-700 dark:text-blue-300 font-bold text-xs">
+                      {
+                        data.attendanceRecords.filter(
+                          r => r.classId === effectiveClassId && r.subjectId === attendanceSubjectFilter && r.date === attendanceDateFilter
+                        ).length
+                      } Present
+                    </span>
                   </div>
 
                   <div className="space-y-2">
                     {classStudents.map(stu => {
-                      const isPresent = rollCallRoster[stu.email] !== false;
+                      const record = data.attendanceRecords.find(
+                        r => r.classId === effectiveClassId && r.subjectId === attendanceSubjectFilter && r.date === attendanceDateFilter && r.studentEmail?.toLowerCase() === stu.email?.toLowerCase()
+                      );
+                      const isPresent = !!record;
+
                       return (
                         <div key={stu.email} className="p-3 rounded-xl bg-slate-50 dark:bg-slate-850 flex items-center justify-between text-xs">
                           <div>
                             <div className="font-bold text-slate-800 dark:text-slate-100">{stu.name}</div>
-                            <div className="text-[11px] text-slate-400 font-mono">{stu.roll}</div>
+                            <div className="text-[11px] text-slate-400 font-mono">
+                              {stu.roll} • {stu.email}
+                            </div>
                           </div>
 
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-3">
+                            {isPresent ? (
+                              <span className="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-bold text-xs flex items-center gap-1.5">
+                                <Icon name="check" className="w-3.5 h-3.5" />
+                                <span>Registered at {new Date(record.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}</span>
+                              </span>
+                            ) : (
+                              <span className="px-3 py-1 rounded-lg bg-rose-50 text-rose-700 dark:bg-rose-950/40 dark:text-rose-300 font-semibold text-xs">
+                                Absent
+                              </span>
+                            )}
+
+                            {/* Faculty can manually adjust if needed */}
                             <button
-                              onClick={() => setRollCallRoster(prev => ({ ...prev, [stu.email]: true }))}
-                              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                                isPresent 
-                                  ? "bg-emerald-600 text-white shadow-sm" 
-                                  : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
-                              }`}
+                              onClick={() => {
+                                if (isPresent) {
+                                  setData(prev => ({
+                                    ...prev,
+                                    attendanceRecords: prev.attendanceRecords.filter(r => r.id !== record.id)
+                                  }));
+                                  showToast(`Marked ${stu.name} absent.`, "info");
+                                } else {
+                                  const newRecord = {
+                                    id: `att-${Date.now()}-${Math.random().toString(36).substr(2, 4)}`,
+                                    classId: effectiveClassId,
+                                    subjectId: attendanceSubjectFilter,
+                                    date: attendanceDateFilter,
+                                    studentEmail: stu.email,
+                                    studentName: stu.name,
+                                    studentRoll: stu.roll,
+                                    timestamp: new Date().toISOString()
+                                  };
+                                  setData(prev => ({
+                                    ...prev,
+                                    attendanceRecords: [newRecord, ...prev.attendanceRecords]
+                                  }));
+                                  showToast(`Manually marked ${stu.name} present.`, "success");
+                                }
+                              }}
+                              className="text-[11px] text-blue-600 hover:underline font-semibold"
                             >
-                              Present
-                            </button>
-                            <button
-                              onClick={() => setRollCallRoster(prev => ({ ...prev, [stu.email]: false }))}
-                              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition ${
-                                !isPresent 
-                                  ? "bg-rose-600 text-white shadow-sm" 
-                                  : "bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300"
-                              }`}
-                            >
-                              Absent
+                              Toggle
                             </button>
                           </div>
                         </div>
                       );
                     })}
                   </div>
-
-                  <div className="pt-3 border-t border-slate-200 dark:border-slate-800 flex justify-end">
-                    <button
-                      onClick={() => {
-                        const presentList = classStudents
-                          .filter(s => rollCallRoster[s.email] !== false)
-                          .map(s => s.email);
-
-                        const newRollCall = {
-                          id: `rc-${Date.now()}`,
-                          classId: effectiveClassId,
-                          subjectId: rollCallSubId,
-                          date: new Date().toISOString(),
-                          presentEmails: presentList
-                        };
-
-                        setData(prev => ({
-                          ...prev,
-                          rollCalls: [newRollCall, ...prev.rollCalls]
-                        }));
-
-                        showToast("Lecture roll-call committed to student attendance records!", "success");
-                      }}
-                      className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-500/20 transition"
-                    >
-                      Commit Attendance Record
-                    </button>
-                  </div>
                 </div>
               )}
             </div>
           )}
 
-          {/* TAB 5: FACULTY - CP & COLD CALL TRACKER */}
-          {activeTab === "cp" && isFaculty && (
+          {/* TAB: STUDENT - REGISTER ATTENDANCE & 75% RADAR */}
+          {activeTab === "attendance" && isStudent && (
             <div className="space-y-6 animate-fadeIn">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
                   <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                    Class Participation (CP) Tracker
+                    Register Lecture Attendance
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    Log Harvard-style case contribution points for students in {currentClass?.name}.
+                    Check-in for today's lectures. Your attendance is monitored live against the mandatory 75% rule.
                   </p>
                 </div>
-                <button
-                  onClick={() => setShowCpModal(true)}
-                  className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs transition shadow-sm"
-                >
-                  + Log CP Score
-                </button>
+                <div className="text-xs font-bold text-slate-500 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl">
+                  Today: {new Date().toLocaleDateString("en-IN", { month: "short", day: "numeric", year: "numeric" })}
+                </div>
               </div>
 
-              <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm overflow-hidden">
-                <div className="p-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between text-xs">
-                  <span className="font-bold uppercase tracking-wider text-slate-500">
-                    Cohort CP Leaderboard ({classStudents.length} Students)
-                  </span>
-                  <span className="text-slate-400">Total Logs: {data.cpLogs.filter(c => c.classId === effectiveClassId).length}</span>
-                </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {studentAttendanceStats.map(item => (
+                  <div 
+                    key={item.subject.id} 
+                    className={`p-5 rounded-2xl border transition bg-white dark:bg-slate-900 space-y-4 ${
+                      item.isAtRisk 
+                        ? "border-rose-400 dark:border-rose-800 bg-rose-50/15" 
+                        : "border-slate-200 dark:border-slate-800"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                          {item.subject.code}
+                        </span>
+                        <h3 className="font-bold text-sm text-slate-900 dark:text-white">
+                          {item.subject.name}
+                        </h3>
+                        <div className="text-[11px] text-slate-400 mt-0.5">Faculty: {item.subject.facultyName}</div>
+                      </div>
 
-                <div className="overflow-x-auto">
-                  <table className="w-full text-left text-xs">
-                    <thead className="bg-slate-50 dark:bg-slate-800/60 border-b border-slate-200 dark:border-slate-800 text-slate-400 font-bold uppercase tracking-wider">
-                      <tr>
-                        <th className="p-3.5">Student</th>
-                        <th className="p-3.5">Roll No</th>
-                        <th className="p-3.5">Total CP</th>
-                        <th className="p-3.5">Recent Quality</th>
-                        <th className="p-3.5 text-right">Quick Award</th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
-                      {classStudents.map(stu => {
-                        const studentLogs = data.cpLogs.filter(l => l.studentEmail === stu.email && l.classId === effectiveClassId);
-                        const total = studentLogs.reduce((acc, curr) => acc + curr.points, 0);
-                        const latest = studentLogs[0];
+                      <div className={`px-3 py-1 rounded-xl text-sm font-black ${
+                        item.isAtRisk 
+                          ? "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300"
+                          : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
+                      }`}>
+                        {item.percentage}%
+                      </div>
+                    </div>
 
-                        return (
-                          <tr key={stu.email} className="hover:bg-slate-50/50 dark:hover:bg-slate-800/30 transition">
-                            <td className="p-3.5 font-bold text-slate-900 dark:text-slate-100">{stu.name}</td>
-                            <td className="p-3.5 font-mono text-slate-500">{stu.roll}</td>
-                            <td className="p-3.5">
-                              <span className="px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-800 dark:text-amber-300 font-extrabold text-xs">
-                                ⭐ {total} pts
-                              </span>
-                            </td>
-                            <td className="p-3.5">
-                              {latest ? (
-                                <span className="px-2 py-0.5 rounded bg-indigo-50 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 text-[11px] font-semibold">
-                                  {latest.category} ({latest.points}pts)
-                                </span>
-                              ) : (
-                                <span className="text-slate-400 italic">No score yet</span>
-                              )}
-                            </td>
-                            <td className="p-3.5 text-right space-x-1">
-                              {[1, 2, 3].map(pts => (
-                                <button
-                                  key={pts}
-                                  onClick={() => {
-                                    const newLog = {
-                                      id: `cp-${Date.now()}-${pts}`,
-                                      classId: effectiveClassId,
-                                      subjectId: classSubjects[0]?.id || "sub-1",
-                                      studentEmail: stu.email,
-                                      studentName: stu.name,
-                                      facultyEmail: currentUser.email,
-                                      points: pts,
-                                      category: pts === 3 ? "Breakthrough Insight" : pts === 2 ? "Framework Rigor" : "Cold-Call",
-                                      note: `Quick +${pts} awarded during discussion.`,
-                                      date: new Date().toISOString()
-                                    };
-                                    setData(prev => ({ ...prev, cpLogs: [newLog, ...prev.cpLogs] }));
-                                    showToast(`Awarded +${pts} CP to ${stu.name}!`, "success");
-                                  }}
-                                  className="px-2 py-1 rounded bg-slate-100 hover:bg-amber-100 dark:bg-slate-800 dark:hover:bg-amber-950 text-slate-700 hover:text-amber-800 dark:text-slate-300 dark:hover:text-amber-200 font-bold text-[10px] transition"
-                                >
-                                  +{pts}
-                                </button>
-                              ))}
-                            </td>
-                          </tr>
-                        );
-                      })}
-                    </tbody>
-                  </table>
-                </div>
+                    {/* Check-in Action Button */}
+                    <div className="p-3 rounded-xl bg-slate-50 dark:bg-slate-800/80 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-slate-600 dark:text-slate-300">
+                        Today's Lecture Check-in:
+                      </span>
+                      {item.hasRegisteredToday ? (
+                        <span className="px-3 py-1 rounded-lg bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 font-bold text-xs flex items-center gap-1.5">
+                          <Icon name="check" className="w-3.5 h-3.5" />
+                          <span>Registered Today</span>
+                        </span>
+                      ) : (
+                        <button
+                          onClick={() => handleStudentRegisterAttendance(item.subject.id)}
+                          className="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-sm transition"
+                        >
+                          Register Attendance
+                        </button>
+                      )}
+                    </div>
+
+                    <div>
+                      <div className="flex justify-between text-xs font-semibold text-slate-500 mb-1">
+                        <span>Attended: {item.attended} / {item.conducted} lectures</span>
+                        <span>Required: 75%</span>
+                      </div>
+                      <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
+                        <div 
+                          className={`h-full transition-all duration-500 ${
+                            item.isAtRisk ? "bg-rose-600" : "bg-emerald-500"
+                          }`} 
+                          style={{ width: `${Math.min(100, item.percentage)}%` }}
+                        />
+                      </div>
+                    </div>
+
+                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 text-xs">
+                      {item.isAtRisk ? (
+                        <div className="text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1.5">
+                          <Icon name="alert" className="w-4 h-4 flex-shrink-0" />
+                          <span>Debarment Risk: Must attend next {item.classesNeededToClear} lectures consecutively!</span>
+                        </div>
+                      ) : (
+                        <div className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
+                          <Icon name="check" className="w-4 h-4 flex-shrink-0" />
+                          <span>Safe: Above 75% threshold.</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
           )}
 
-          {/* TAB: STUDENT - MY 9 SUBJECTS & FACULTY */}
+          {/* TAB: STUDENT - MY SUBJECTS & FACULTY */}
           {activeTab === "subjects" && isStudent && (
             <div className="space-y-6 animate-fadeIn">
               <div>
                 <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                  My 9 Curriculum Subjects & Respective Faculty
+                  My Curriculum Subjects & Respective Faculty
                 </h1>
                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                   Enrolled in {currentClass?.name}. Only your respective professors and course codes are shown.
@@ -1186,128 +1443,6 @@ export default function App() {
             </div>
           )}
 
-          {/* TAB: STUDENT - 75% ATTENDANCE RADAR */}
-          {activeTab === "attendance" && isStudent && (
-            <div className="space-y-6 animate-fadeIn">
-              <div>
-                <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                  Attendance Debarment Radar
-                </h1>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  Real-time monitoring across your 9 subjects against the mandatory 75% b-school examination rule.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {studentAttendanceStats.map(item => (
-                  <div 
-                    key={item.subject.id} 
-                    className={`p-5 rounded-2xl border transition bg-white dark:bg-slate-900 ${
-                      item.isAtRisk 
-                        ? "border-rose-400 dark:border-rose-800 bg-rose-50/15" 
-                        : "border-slate-200 dark:border-slate-800"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                          {item.subject.code}
-                        </span>
-                        <h3 className="font-bold text-sm text-slate-900 dark:text-white">
-                          {item.subject.name}
-                        </h3>
-                        <div className="text-[11px] text-slate-400 mt-0.5">Faculty: {item.subject.facultyName}</div>
-                      </div>
-
-                      <div className={`px-3 py-1 rounded-xl text-sm font-black ${
-                        item.isAtRisk 
-                          ? "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300"
-                          : "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300"
-                      }`}>
-                        {item.percentage}%
-                      </div>
-                    </div>
-
-                    <div className="mt-4">
-                      <div className="flex justify-between text-xs font-semibold text-slate-500 mb-1">
-                        <span>Attended: {item.attended} / {item.conducted} lectures</span>
-                        <span>Required: 75%</span>
-                      </div>
-                      <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                        <div 
-                          className={`h-full transition-all duration-500 ${
-                            item.isAtRisk ? "bg-rose-600" : "bg-emerald-500"
-                          }`} 
-                          style={{ width: `${Math.min(100, item.percentage)}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 text-xs">
-                      {item.isAtRisk ? (
-                        <div className="text-rose-600 dark:text-rose-400 font-bold flex items-center gap-1.5">
-                          <Icon name="alert" className="w-4 h-4 flex-shrink-0" />
-                          <span>Debarment Risk: Must attend next {item.classesNeededToClear} lectures consecutively to reach 75%!</span>
-                        </div>
-                      ) : (
-                        <div className="text-emerald-600 dark:text-emerald-400 font-semibold flex items-center gap-1.5">
-                          <Icon name="check" className="w-4 h-4 flex-shrink-0" />
-                          <span>Safe: Above the 75% threshold.</span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* TAB: STUDENT - MY CP PERFORMANCE */}
-          {activeTab === "mycp" && isStudent && (
-            <div className="space-y-6 animate-fadeIn">
-              <div>
-                <h1 className="text-2xl font-black text-slate-900 dark:text-white">
-                  My Case Participation (CP) Record
-                </h1>
-                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                  Scores awarded by your respective subject professors during case discussions.
-                </p>
-              </div>
-
-              <div className="space-y-3">
-                {data.cpLogs.filter(l => l.studentEmail === currentUser.email).map(log => {
-                  const sub = classSubjects.find(s => s.id === log.subjectId);
-                  return (
-                    <div key={log.id} className="p-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-start justify-between gap-4 shadow-sm">
-                      <div>
-                        <div className="flex items-center gap-2">
-                          <span className="text-[10px] font-bold px-2 py-0.5 rounded bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300">
-                            {sub?.code || "SUB"} • {sub?.name}
-                          </span>
-                          <span className="text-xs font-extrabold text-amber-500">
-                            +{log.points} Points
-                          </span>
-                        </div>
-                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-2 font-medium">
-                          "{log.note}"
-                        </p>
-                      </div>
-                      <span className="text-[11px] text-slate-400 whitespace-nowrap">
-                        {formatDate(log.date)}
-                      </span>
-                    </div>
-                  );
-                })}
-
-                {data.cpLogs.filter(l => l.studentEmail === currentUser.email).length === 0 && (
-                  <div className="p-8 text-center bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-800 text-xs text-slate-400">
-                    No CP points awarded yet. Participate actively in case lectures!
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-
           {/* TAB 6: CASE STUDIES & ASSIGNMENTS */}
           {activeTab === "asg" && (
             <div className="space-y-6 animate-fadeIn">
@@ -1317,7 +1452,7 @@ export default function App() {
                     Case Studies & Assignments
                   </h1>
                   <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-                    {isFaculty ? "Post case studies for any of the 9 subjects and grade submissions." : "Submit case analyses and view scores from your respective professors."}
+                    {isFaculty ? `Showing assignments for subjects handled by ${currentUser.name}.` : "Submit case analyses and view scores from your respective professors."}
                   </p>
                 </div>
                 {isFaculty && currentClass && (
@@ -1333,7 +1468,7 @@ export default function App() {
 
               {classAssignments.length === 0 ? (
                 <div className="p-8 text-center bg-white dark:bg-slate-900 border border-dashed border-slate-300 dark:border-slate-800 rounded-2xl text-xs text-slate-400">
-                  No assignments posted for this class yet.
+                  {isFaculty ? "No assignments posted for your subjects yet." : "No assignments posted for this class yet."}
                 </div>
               ) : (
                 <div className="space-y-4">
@@ -1636,13 +1771,20 @@ export default function App() {
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.target;
+                const email = form.facEmail.value.trim().toLowerCase();
+
+                if (!email.endsWith(COLLEGE_DOMAIN)) {
+                  showToast(`Faculty email must end with ${COLLEGE_DOMAIN}`, "error");
+                  return;
+                }
+
                 const newSub = {
                   id: `sub-${Date.now()}`,
                   classId: effectiveClassId,
                   code: form.code.value.trim().toUpperCase(),
                   name: form.name.value.trim(),
                   facultyName: form.facName.value.trim(),
-                  facultyEmail: form.facEmail.value.trim().toLowerCase(),
+                  facultyEmail: email,
                   credits: Number(form.credits.value) || 3,
                   totalClasses: Number(form.totalClasses.value) || 24
                 };
@@ -1675,8 +1817,8 @@ export default function App() {
                   <input name="facName" required placeholder="e.g. Dr. R. Ramanathan" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
                 </div>
                 <div>
-                  <label className="font-semibold block mb-1">Faculty Email:</label>
-                  <input name="facEmail" type="email" required placeholder="ramanathan@psgim.ac.in" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                  <label className="font-semibold block mb-1">Faculty College Email ({COLLEGE_DOMAIN}):</label>
+                  <input name="facEmail" type="email" required placeholder={`ramanathan${COLLEGE_DOMAIN}`} className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
                 </div>
               </div>
 
@@ -1713,10 +1855,17 @@ export default function App() {
               onSubmit={(e) => {
                 e.preventDefault();
                 const form = e.target;
+                const email = form.stuEmail.value.trim().toLowerCase();
+
+                if (!email.endsWith(COLLEGE_DOMAIN)) {
+                  showToast(`Student email must end with ${COLLEGE_DOMAIN}`, "error");
+                  return;
+                }
+
                 const newStudent = {
                   id: `stu-${Date.now()}`,
                   name: form.stuName.value.trim(),
-                  email: form.stuEmail.value.trim().toLowerCase(),
+                  email,
                   roll: form.stuRoll.value.trim().toUpperCase(),
                   classId: effectiveClassId
                 };
@@ -1737,8 +1886,8 @@ export default function App() {
                   <input name="stuRoll" required placeholder="e.g. 25MBA001" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
                 </div>
                 <div>
-                  <label className="font-semibold block mb-1">Student Email:</label>
-                  <input name="stuEmail" type="email" required placeholder="aarav.s25@psgim.ac.in" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
+                  <label className="font-semibold block mb-1">Student College Email ({COLLEGE_DOMAIN}):</label>
+                  <input name="stuEmail" type="email" required placeholder={`aarav.s25${COLLEGE_DOMAIN}`} className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700" />
                 </div>
               </div>
               <div className="pt-2 flex justify-end gap-2">
@@ -1777,18 +1926,21 @@ export default function App() {
                 lines.forEach((line, idx) => {
                   const parts = line.split(",").map(p => p.trim());
                   if (parts.length >= 2) {
-                    newStudents.push({
-                      id: `stu-${Date.now()}-${idx}`,
-                      name: parts[0],
-                      email: parts[1].toLowerCase(),
-                      roll: parts[2] || `25MBA${100 + idx}`,
-                      classId: effectiveClassId
-                    });
+                    const email = parts[1].toLowerCase();
+                    if (email.endsWith(COLLEGE_DOMAIN)) {
+                      newStudents.push({
+                        id: `stu-${Date.now()}-${idx}`,
+                        name: parts[0],
+                        email,
+                        roll: parts[2] || `25MBA${100 + idx}`,
+                        classId: effectiveClassId
+                      });
+                    }
                   }
                 });
 
                 if (newStudents.length === 0) {
-                  showToast("No valid rows found. Use: Name, Email, Roll", "error");
+                  showToast(`No valid rows found. Ensure emails end with ${COLLEGE_DOMAIN}`, "error");
                   return;
                 }
 
@@ -1804,13 +1956,13 @@ export default function App() {
             >
               <div>
                 <label className="font-semibold block mb-1">
-                  Paste rows (Format: Name, Email, Roll):
+                  Paste rows (Format: Name, Email@{COLLEGE_DOMAIN.slice(1)}, Roll):
                 </label>
                 <textarea
                   name="csvText"
                   rows="5"
                   required
-                  placeholder="Aarav Sharma, aarav.s25@psgim.ac.in, 25MBA001&#10;Priya Nair, priya.n25@psgim.ac.in, 25MBA002"
+                  placeholder={`Aarav Sharma, aarav.s25${COLLEGE_DOMAIN}, 25MBA001\nPriya Nair, priya.n25${COLLEGE_DOMAIN}, 25MBA002`}
                   className="w-full font-mono text-[11px] px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"
                 ></textarea>
               </div>
@@ -1827,100 +1979,7 @@ export default function App() {
         </div>
       )}
 
-      {/* MODAL 5: LOG CP SCORE (FACULTY ONLY) */}
-      {showCpModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
-          <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="font-bold text-base text-slate-900 dark:text-white">Award Case Participation</h3>
-              <button onClick={() => setShowCpModal(false)} className="text-slate-400 hover:text-slate-600">
-                <Icon name="x" className="w-5 h-5" />
-              </button>
-            </div>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                const form = e.target;
-                const studentEmail = form.student.value;
-                const studentObj = classStudents.find(s => s.email === studentEmail);
-                const points = Number(form.points.value);
-
-                const newLog = {
-                  id: `cp-${Date.now()}`,
-                  classId: effectiveClassId,
-                  subjectId: form.subject.value,
-                  studentEmail,
-                  studentName: studentObj?.name || "Student",
-                  facultyEmail: currentUser.email,
-                  points,
-                  category: form.category.value,
-                  note: form.note.value.trim(),
-                  date: new Date().toISOString()
-                };
-
-                setData(prev => ({ ...prev, cpLogs: [newLog, ...prev.cpLogs] }));
-                showToast(`Awarded +${points} CP to ${studentObj?.name}!`, "success");
-                setShowCpModal(false);
-              }}
-              className="space-y-3 text-xs"
-            >
-              <div>
-                <label className="font-semibold block mb-1">Student:</label>
-                <select name="student" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                  {classStudents.map(s => (
-                    <option key={s.email} value={s.email}>{s.name} ({s.roll})</option>
-                  ))}
-                </select>
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Subject:</label>
-                <select name="subject" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                  {classSubjects.map(s => (
-                    <option key={s.id} value={s.id}>{s.code} - {s.name}</option>
-                  ))}
-                </select>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                <div>
-                  <label className="font-semibold block mb-1">Points:</label>
-                  <select name="points" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                    <option value="1">1 pt - Adequate</option>
-                    <option value="2">2 pts - Framework Rigor</option>
-                    <option value="3">3 pts - Breakthrough</option>
-                  </select>
-                </div>
-                <div>
-                  <label className="font-semibold block mb-1">Category:</label>
-                  <select name="category" className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                    <option>Breakthrough Insight</option>
-                    <option>Framework Rigor</option>
-                    <option>Cold-Call Response</option>
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label className="font-semibold block mb-1">Faculty Remarks:</label>
-                <textarea name="note" rows="2" placeholder="e.g. Sharply critiqued CAC model..." className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700"></textarea>
-              </div>
-
-              <div className="pt-2 flex justify-end gap-2">
-                <button type="button" onClick={() => setShowCpModal(false)} className="px-4 py-2 border rounded-xl font-semibold">
-                  Cancel
-                </button>
-                <button type="submit" className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold">
-                  Save Score
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      )}
-
-      {/* MODAL 6: POST ASSIGNMENT (FACULTY ONLY) */}
+      {/* MODAL 6: POST ASSIGNMENT (FACULTY ONLY - ONLY FOR THEIR HANDLED SUBJECTS) */}
       {showAsgModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-md w-full p-6 shadow-2xl space-y-4">
@@ -1953,9 +2012,9 @@ export default function App() {
               className="space-y-3 text-xs"
             >
               <div>
-                <label className="font-semibold block mb-1">Subject:</label>
+                <label className="font-semibold block mb-1">Your Subject:</label>
                 <select name="subject" required className="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-300 dark:border-slate-700">
-                  {classSubjects.map(s => (
+                  {myFacultySubjects.map(s => (
                     <option key={s.id} value={s.id}>{s.code} - {s.name}</option>
                   ))}
                 </select>
@@ -2175,8 +2234,8 @@ export default function App() {
           <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-lg w-full p-6 shadow-2xl space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-bold text-base text-slate-900 dark:text-white">Switch Role & User</h3>
-                <p className="text-xs text-slate-400">Toggle between Faculty Administrator or an enrolled student.</p>
+                <h3 className="font-bold text-base text-slate-900 dark:text-white">Switch User / View</h3>
+                <p className="text-xs text-slate-400">Strictly filtered to authorized {COLLEGE_DOMAIN} accounts.</p>
               </div>
               <button onClick={() => setShowSwitchUserModal(false)} className="text-slate-400 hover:text-slate-600">
                 <Icon name="x" className="w-5 h-5" />
@@ -2185,35 +2244,68 @@ export default function App() {
 
             <div className="space-y-4 text-xs">
               
-              {/* Option A: Faculty Admin */}
-              <div className="p-4 rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/30 flex items-center justify-between">
-                <div>
-                  <div className="font-bold text-purple-900 dark:text-purple-200 flex items-center gap-1.5">
-                    <span>Dr. Faculty Admin</span>
-                    <span className="text-[10px] bg-purple-200 dark:bg-purple-900 px-1.5 py-0.5 rounded font-black">ADMIN</span>
+              {/* Option A: Faculty Accounts */}
+              <div className="space-y-2">
+                <span className="font-bold text-slate-500 uppercase tracking-wider text-[10px] block">
+                  Faculty Professors ({classFaculties.length + 1}):
+                </span>
+
+                <div className="p-3 rounded-xl border border-purple-200 dark:border-purple-800 bg-purple-50/50 dark:bg-purple-950/30 flex items-center justify-between">
+                  <div>
+                    <div className="font-bold text-purple-900 dark:text-purple-200 flex items-center gap-1.5">
+                      <span>Dr. Faculty Admin</span>
+                      <span className="text-[10px] bg-purple-200 dark:bg-purple-900 px-1.5 py-0.5 rounded font-black">ADMIN</span>
+                    </div>
+                    <div className="text-[11px] text-slate-500">admin.faculty@psgim.ac.in</div>
                   </div>
-                  <div className="text-[11px] text-slate-500">Full administration: manage classes, 9 subjects, & grading</div>
+                  <button
+                    onClick={() => {
+                      setCurrentUser({
+                        role: "faculty",
+                        name: "Dr. Faculty Admin",
+                        email: "admin.faculty@psgim.ac.in",
+                        designation: "Program Coordinator"
+                      });
+                      setActiveTab("home");
+                      setShowSwitchUserModal(false);
+                      showToast("Switched to Faculty Admin.", "info");
+                    }}
+                    className="px-3 py-1.5 rounded-xl bg-purple-600 text-white font-bold hover:bg-purple-700 transition"
+                  >
+                    Switch
+                  </button>
                 </div>
-                <button
-                  onClick={() => {
-                    setCurrentUser({
-                      role: "faculty",
-                      name: "Dr. Faculty Admin",
-                      email: "admin.faculty@psgim.ac.in",
-                      designation: "Program Coordinator"
-                    });
-                    setActiveTab("home");
-                    setShowSwitchUserModal(false);
-                    showToast("Switched to Faculty Admin view.", "info");
-                  }}
-                  className="px-3 py-1.5 rounded-xl bg-purple-600 text-white font-bold hover:bg-purple-700 transition"
-                >
-                  Switch
-                </button>
+
+                {classFaculties.map(fac => (
+                  <div key={fac.email} className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
+                    <div>
+                      <div className="font-bold text-slate-900 dark:text-white">{fac.name}</div>
+                      <div className="text-[11px] text-slate-400 font-mono">
+                        {fac.email} • Subjects: {fac.subjects.join(", ")}
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setCurrentUser({
+                          role: "faculty",
+                          name: fac.name,
+                          email: fac.email,
+                          designation: "Subject Professor"
+                        });
+                        setActiveTab("home");
+                        setShowSwitchUserModal(false);
+                        showToast(`Switched to Professor ${fac.name}`, "info");
+                      }}
+                      className="px-3 py-1 rounded-lg text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-200 hover:bg-purple-600 hover:text-white transition"
+                    >
+                      Login as Faculty
+                    </button>
+                  </div>
+                ))}
               </div>
 
               {/* Option B: Enrolled Students */}
-              <div className="space-y-2">
+              <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                 <span className="font-bold text-slate-500 uppercase tracking-wider text-[10px] block">
                   Enrolled Students in {currentClass?.name || "Classes"} ({data.students.length}):
                 </span>
@@ -2226,14 +2318,14 @@ export default function App() {
                   <div className="max-h-48 overflow-y-auto space-y-1.5 pr-1">
                     {data.students.map(stu => {
                       const studentClass = data.classes.find(c => c.id === stu.classId);
-                      const isCurrent = currentUser.email === stu.email;
+                      const isCurrent = currentUser?.email === stu.email;
 
                       return (
                         <div key={stu.id} className="p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 flex items-center justify-between">
                           <div>
                             <div className="font-bold text-slate-900 dark:text-white">{stu.name}</div>
                             <div className="text-[11px] text-slate-400 font-mono">
-                              {stu.roll} • {studentClass ? studentClass.name : "Class"}
+                              {stu.roll} • {stu.email}
                             </div>
                           </div>
 
